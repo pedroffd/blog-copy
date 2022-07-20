@@ -4,13 +4,13 @@ import { Background } from '../background/Background';
 import { Button } from '../buttons/Button';
 import { HeroOneButton } from '../hero/HeroOneButton';
 import { Section } from '../layout/Section';
-import { NavbarTwoColumns } from '../navigation/NavbarTwoColumns';
+import { NavbarThreeColumns } from '../navigation/NavbarThreeColumns';
 import { Logo } from './Logo';
 
 const Hero = () => (
   <Background color="bg-gray-100">
     <Section yPadding="py-6">
-      <NavbarTwoColumns logo={<Logo xl />}>
+      <NavbarThreeColumns logo={<Logo xl />}>
         <li>
           <Link href="https://github.com/pedroffd/troca-online">
             <a>GitHub</a>
@@ -21,7 +21,7 @@ const Hero = () => (
             <a>Sign in</a>
           </Link>
         </li>
-      </NavbarTwoColumns>
+      </NavbarThreeColumns>
     </Section>
 
     <Section yPadding="pt-20 pb-32">
