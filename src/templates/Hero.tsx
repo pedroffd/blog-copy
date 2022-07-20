@@ -12,7 +12,7 @@ const Hero = () => (
     <Section yPadding="py-6">
       <NavbarTwoColumns logo={<Logo xl />}>
         <li>
-        <Link href="https://github.com/pedroffd/troca-online">
+          <Link href="https://github.com/pedroffd/troca-online">
             <a>GitHub</a>
           </Link>
         </li>
