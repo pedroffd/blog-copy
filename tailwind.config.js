@@ -2,6 +2,9 @@
 module.exports = {
   content: ['./src/**/*.{html,js,ts,jsx,tsx}'],
   theme: {
+    container: {
+      padding: '2rem',
+    },
     fontSize: {
       xs: '0.75rem',
       sm: '0.875rem',
