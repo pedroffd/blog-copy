@@ -1,8 +1,10 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { Background } from '../background/Background';
 import { Button } from '../buttons/Button';
 import { HeroOneButton } from '../hero/HeroOneButton';
+import BeLogo from '../images/logos/behance.svg';
 import { Section } from '../layout/Section';
 import { NavbarThreeColumns } from '../navigation/NavbarThreeColumns';
 import { Logo } from './Logo';
@@ -13,7 +15,7 @@ const Hero = () => (
       <NavbarThreeColumns logo={<Logo xl />}>
         <li>
           <Link href="https://github.com/pedroffd/troca-online">
-            <a>GitHub</a>
+            <Image src={BeLogo} alt="Behance Logo" height={32} width={32} />
           </Link>
         </li>
         <li>

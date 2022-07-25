@@ -33,7 +33,12 @@
     "jsx": "preserve",
     "noEmit": true,
     "isolatedModules": true,
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@": ["./src"],
+      "@/*": ["./src/*"],
+      "@components": ["./src/components"]
+    }
   },
   "exclude": ["./out/**/*", "./node_modules/**/*"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
