@@ -41,6 +41,15 @@ module.exports = {
           800: '#2d3748',
           900: '#1a202c',
         },
+        mainPurple: {
+          100: '#ddd6ff',
+          200: '#cac9f3',
+          300: '#7D41E1',
+        },
+        mainBlue: {
+          100: '#2DAAFC',
+        },
+        white: '#FFFFFF',
       },
       lineHeight: {
         hero: '4.5rem',

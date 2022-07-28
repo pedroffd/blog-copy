@@ -9,11 +9,13 @@
     "inittailwind": "npx tailwind -i ./src/styles/glboals.css -o ./dist/output.css --watch"
   },
   "dependencies": {
+    "algoliasearch": "^4.14.1",
     "classnames": "^2.3.1",
     "next": "12.2.2",
     "next-seo": "^5.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-instantsearch-hooks-web": "^6.30.2",
     "styled-jsx-plugin-postcss": "^4.0.1"
   },
   "devDependencies": {
