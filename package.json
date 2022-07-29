@@ -9,17 +9,22 @@
     "inittailwind": "npx tailwind -i ./src/styles/glboals.css -o ./dist/output.css --watch"
   },
   "dependencies": {
+    "algoliasearch": "^4.14.1",
     "classnames": "^2.3.1",
     "next": "12.2.2",
     "next-seo": "^5.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "react-instantsearch-dom": "^6.30.2",
+    "react-instantsearch-hooks-web": "^6.30.2",
     "styled-jsx-plugin-postcss": "^4.0.1"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^12.2.2",
     "@types/node": "^18.0.6",
     "@types/react": "18.0.15",
+    "@types/react-instantsearch-dom": "^6.12.3",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "autoprefixer": "^10.4.7",

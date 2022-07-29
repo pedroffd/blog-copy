@@ -19,10 +19,13 @@
     "allowUnreachableCode": false,
     "noFallthroughCasesInSwitch": true,
 
-    "target": "es5",
+    "target": "es2018",
     "outDir": "out",
     "declaration": true,
     "sourceMap": true,
+
+    "baseUrl": "./src",
+
 
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -35,11 +38,10 @@
     "isolatedModules": true,
     "incremental": true,
     "paths": {
-      "@": ["./src"],
-      "@/*": ["./src/*"],
-      "@components": ["./src/components"]
-    }
+      "@/*": ["./*"]
+    },
   },
-  "exclude": ["./out/**/*", "./node_modules/**/*"],
+  "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  
 }
