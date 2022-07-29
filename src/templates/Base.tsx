@@ -1,6 +1,7 @@
-import SearchBoxComponent from '@/components/search/SearchBox';
+import  SearchBoxComponent  from '@/components/search/SearchBox';
 
-import { Meta } from '../layout/Meta';
+import { Meta } from '@/layout/Meta'
+
 import { AppConfig } from '../utils/AppConfig';
 import { Banner } from './Banner';
 import { Footer } from './Footer';
