@@ -1,6 +1,7 @@
-import  SearchBoxComponent  from '@/components/search/SearchBox';
+import SearchBoxComponent from '@/components/search/SearchBox';
+import TestComponent from '@/components/search/TestComponent';
 
-import { Meta } from '@/layout/Meta'
+import { Meta } from '@/layout/Meta';
 
 import { AppConfig } from '../utils/AppConfig';
 import { Banner } from './Banner';
@@ -14,6 +15,7 @@ const Base = () => (
     <TopBar />
     <Banner />
     <SearchBoxComponent />
+    <TestComponent />
     <VerticalFeatures />
     <Footer />
   </div>

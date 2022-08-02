@@ -1,17 +1,39 @@
-import BeLogo from '@/images/logos/behance.svg';
-
-import Image from 'next/image';
-
 const TestComponent = () => {
   return (
     <div className="flex flex-col justify-center items-center mx-auto">
-      {/* <div
-        style="background-image: url(https://images.unsplash.com/photo-1539185441755-769473a23570?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"
-        className="bg-gray-300 h-64 w-full rounded-lg shadow-md bg-cover bg-center"
-      ></div> */}
-      <Image src={BeLogo} alt="Behance Logo" height={180} width={180} />
-      <div className="w-56 md:w-64 bg-white -mt-10">
-        <div className="uppercase">Nike Revoltadsfadsfadsfasd</div>
+      <div className="flex items-center px-2 lg:px-5 py-6 bg-red-500">
+        <div className="lg:block lg:ml-2">
+          <div className="flex">
+            <a
+              href="#"
+              className="ml-4 px-3 py-2 rounded-full text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-mainBlue-100 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-mainPurple-300 "
+            >
+              {' '}
+              Location{' '}
+            </a>
+            <a
+              href="#"
+              className="ml-4 px-3 py-2 rounded-full text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-mainBlue-100 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-mainPurple-300 "
+            >
+              {' '}
+              Article{' '}
+            </a>
+            <a
+              href="#"
+              className="ml-4 px-3 py-2 rounded-full text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-mainBlue-100 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-mainPurple-300 "
+            >
+              {' '}
+              Recipe{' '}
+            </a>
+            <a
+              href="#"
+              className="ml-4 px-3 py-2 rounded-full text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-mainBlue-100 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-mainPurple-300 "
+            >
+              {' '}
+              Promo{' '}
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

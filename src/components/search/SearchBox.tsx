@@ -1,21 +1,23 @@
 /* import { InstantSearch, SearchBox } from 'react-instantsearch-hooks-web';
 
 import { searchClient } from '@/config/searchClient'; */
-import { connectSearchBox } from 'react-instantsearch-dom';
-import useDebounce from '@/hooks/useDebounce';
-import { useEffect, useState } from 'react';
+import { /* useEffect */ useState } from 'react';
 
-const SearchBox = ({ refine }: any) => {
+// import { connectSearchBox } from 'react-instantsearch-dom';
+
+// import useDebounce from '@/hooks/useDebounce';
+// const SearchBoxComponent = ({ refinedText }: any) => {
+const SearchBoxComponent = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  //  const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (debouncedSearchTerm) {
-      refine(debouncedSearchTerm);
+      refinedText(debouncedSearchTerm);
     } else {
-      refine('');
+      refinedText('');
     }
-  }, [debouncedSearchTerm, refine]);
+  }, [debouncedSearchTerm, refinedText]); */
 
   return (
     /*  <InstantSearch searchClient={searchClient} indexName="blog-copy">
@@ -52,5 +54,4 @@ const SearchBox = ({ refine }: any) => {
   );
 };
 
-const SearchBoxComponent = connectSearchBox(SearchBox);
 export default SearchBoxComponent;
