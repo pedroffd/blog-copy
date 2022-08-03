@@ -1,6 +1,5 @@
+import CategoryMenu from '@/components/menu/CategoryMenu';
 import SearchBoxComponent from '@/components/search/SearchBox';
-import TestComponent from '@/components/search/TestComponent';
-
 import { Meta } from '@/layout/Meta';
 
 import { AppConfig } from '../utils/AppConfig';
@@ -15,7 +14,7 @@ const Base = () => (
     <TopBar />
     <Banner />
     <SearchBoxComponent />
-    <TestComponent />
+    <CategoryMenu />
     <VerticalFeatures />
     <Footer />
   </div>
