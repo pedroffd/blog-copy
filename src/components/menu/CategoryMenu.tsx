@@ -60,7 +60,7 @@ const TestComponent = () => {
                         <Link href={menuItem.href ?? '#'}>
                           <a
                             href="#"
-                            className="ml-2 px-6 py-2 rounded-full text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-mainBlue-100 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700 "
+                            className="ml-2 px-4 py-2 rounded-full text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-mainBlue-100 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700 "
                           >
                             {menuItem.label}
                           </a>
