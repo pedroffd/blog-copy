@@ -1,7 +1,7 @@
 # Boilerplate blog for Next JS 12+, Tailwind CSS 3 and TypeScript
 
 
-# All the credits for the design goes to: [![Behance](https://img.shields.io/badge/Behance-0054F7?style=for-the-badge&logo=behance&logoColor=white)](https://www.behance.net/bsiteagency)
+# All the credits for the design goes to: [![test](https://img.shields.io/badge/Behance-0054F7?style=for-the-badge&logo=behance&logoColor=white)](https://www.behance.net/bsiteagency)
 
 <p align="center">
   <a href="https://www.behance.net/bsiteagency"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/e007b1146503165.62b1b87126d6a.jpg" alt="Blog Design"></a>
