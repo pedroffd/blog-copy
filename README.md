@@ -1,4 +1,4 @@
-# Boilerplate and Starter for Next JS 12+, Tailwind CSS 3 and TypeScript
+# Boilerplate blog for Next JS 12+, Tailwind CSS 3 and TypeScript
 
 # All the credits for the design goes to: [![Behance](https://img.shields.io/badge/Behance-0054F7?style=for-the-badge&logo=behance&logoColor=white)](https://www.behance.net/bsiteagency)
 
