@@ -3,7 +3,7 @@
 # All the credits for the design goes to: [![Behance](https://img.shields.io/badge/Behance-0054F7?style=for-the-badge&logo=behance&logoColor=white)](https://www.behance.net/bsiteagency)
 
 <p align="center">
-  <a href="https://www.behance.net/bsiteagency"><img src="public/assets/images/Hexa_Blog1.jpg?raw=true" alt="Blog Design"></a>
+  <a href="https://www.behance.net/bsiteagency"><img src="public/assets/images/Hexa_Blog1.jpg" alt="Blog Design"></a>
 </p>
 
 🚀 Boilerplate for blog and Starter for Next.js, Tailwind CSS and TypeScript ⚡️ Made with developer experience first: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged, VSCode, PostCSS, Tailwind CSS.
