@@ -49,6 +49,7 @@ module.exports = {
         mainBlue: {
           100: '#2DAAFC',
         },
+        cardBg: '#0F141A',
         white: '#FFFFFF',
       },
       lineHeight: {

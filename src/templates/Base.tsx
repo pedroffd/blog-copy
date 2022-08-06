@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-named-as-default
+import CardList from '@/components/card/CardList';
 import CategoryMenu from '@/components/menu/CategoryMenu';
 import SearchBoxComponent from '@/components/search/SearchBox';
 import { Meta } from '@/layout/Meta';
@@ -15,6 +17,7 @@ const Base = () => (
     <Banner />
     <SearchBoxComponent />
     <CategoryMenu />
+    <CardList />
     <VerticalFeatures />
     <Footer />
   </div>

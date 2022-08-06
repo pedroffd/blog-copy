@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: false,
   images: {
-    domains: ['cdn.worldvectorlogo.com'],
+    domains: ['cdn.worldvectorlogo.com', 'https://lh3.googleusercontent.com'],
   },
   webpack5: true,
   webpack: (config) => {
