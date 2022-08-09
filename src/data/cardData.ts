@@ -7,15 +7,16 @@ const projectsData: Array<any> = [
     href: 'https://www.toxicskullsclub.io/',
   },
   {
-    title: 'TinyURL',
+    title: 'Kimetsu no Yaiba',
     description: `TinyApp is a full stack web application built with Node and Express that allows users to shorten long URLs (à la bit.ly). Includes features such as authentication, analytics dashboard, hashed passwords, encrypted cookies. Built with Express and EJS.`,
-    imgSrc: '/static/images/tinyURL.png',
+    imgSrc:
+      'https://1.bp.blogspot.com/-8Opg1d6SYh8/YTYHDofgdqI/AAAAAAAABY8/WzgNgoxoN3En3HPhBVyfz7mnZw_ufnFLQCLcBGAsYHQ/s1536/Anime%2BKimetsu%2Bno%2BYaiba%2BConfirma%2Bdata%2Bde%2Bestreia%2Bda%2Bsua%2BSegunda%2BTemporada%2BMANUAL%2BDO%2BOTAKU.webp',
     href: 'https://github.com/Cwarcup/tinyapp',
   },
   {
-    title: 'lotide',
+    title: 'Days Gone',
     description: `A library similar to lodash for JavaScript. This project was created and published by me as part of my learnings at Lighthouse Labs. The library provides utilities that are not built into native JavaScript such as 'flatten()' to convert nested arrays into a single array.`,
-    imgSrc: '/static/images/lotide.jpg',
+    imgSrc: 'https://image.api.playstation.com/vulcan/ap/rnd/202011/0921/B7jV8ThPs8eqDz8NRRllf7g6.jpg',
     href: 'https://www.npmjs.com/package/@cwarcup/lotide',
   },
   {

@@ -19,12 +19,12 @@ const CardComponent: React.FC<CardProps> = ({
   // const { id,image, authorName, post, date, category, postUrl, authorAvatar } = props;
 
   return (
-    <div className="group relative p-1 md>w-1/2" style={{ maxWidth: '544px' }}>
-      <div className="animate-tilt absolute -inset-0.5 rounded-lg bg-gradient-to-r from-green-600 to-amber-500 opacity-25 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
+    <div className="group relative p-3 md:w-4/12" style={{ maxWidth: '544px' }}>
+      <div className="animate-tilt absolute rounded-lg bg-gradient-to-r from-purple-600 to-amber-500 opacity-25 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
       <div
         className={`${
           imgSrc && 'h-full'
-        }  relative overflow-hidden rounded-md border-2  border-gray-700 border-opacity-60 bg-cardBg`}
+        }  relative overflow-hidden  border-1 border-gray-200 border-opacity-60 bg-white`}
       >
         {imgSrc &&
           (href ? (
@@ -32,7 +32,7 @@ const CardComponent: React.FC<CardProps> = ({
               <Image
                 alt={title}
                 src={imgSrc}
-                className="object-cover object-center md:h-36 lg:h-48"
+                className=" rounded-[18px] object-cover object-center md:h-36 lg:h-48"
                 width={544}
                 height={306}
               />

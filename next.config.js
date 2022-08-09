@@ -2,7 +2,12 @@
 const nextConfig = {
   reactStrictMode: false,
   images: {
-    domains: ['cdn.worldvectorlogo.com', 'https://lh3.googleusercontent.com'],
+    domains: [
+      'cdn.worldvectorlogo.com',
+      'lh3.googleusercontent.com',
+      '1.bp.blogspot.com',
+      'image.api.playstation.com',
+    ],
   },
   webpack5: true,
   webpack: (config) => {
