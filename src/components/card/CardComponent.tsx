@@ -9,12 +9,14 @@ interface CardProps {
   description: any;
   imgSrc: string;
   href: string | UrlObject;
+  authorAvatar: string;
 }
 const CardComponent: React.FC<CardProps> = ({
   title,
   description,
   imgSrc,
   href,
+  authorAvatar,
 }) => {
   // const { id,image, authorName, post, date, category, postUrl, authorAvatar } = props;
 
@@ -46,8 +48,8 @@ const CardComponent: React.FC<CardProps> = ({
               height={306}
             />
           ))}
-        <div className="p-6">
-          <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">
+        <div className="pt-6 pl-6 pb-3 pr-6">
+          <h2 className="mb-3 text-xl font-bold leading-8 tracking-tight">
             {href ? (
               <Link href={href} aria-label={`Link to ${title}`}>
                 {title}
@@ -56,16 +58,36 @@ const CardComponent: React.FC<CardProps> = ({
               title
             )}
           </h2>
-          <p className="prose mb-3 max-w-none text-gray-400">{description}</p>
-          {href && (
-            <Link
-              href={href}
-              className="text-base font-medium leading-6 text-primary-500 hover:text-primary-400"
-              aria-label={`Link to ${title}`}
-            >
-              Learn more &rarr;
-            </Link>
-          )}
+          <p className="prose mb-4 max-w-none text-gray-600">
+            {description.substring(description, 111)}...
+          </p>
+
+          <div className="flex items-center bg-gray-100 pt-2 pb-1 pr-4 h-16 avatar-group">
+            {href && (
+              <>
+                <div className="p-3 avatar">
+                  {' '}
+                  <Image
+                    className="rounded-full"
+                    width={40}
+                    height={40}
+                    src={authorAvatar}
+                    alt="Rounded avatar"
+                  />
+                </div>
+                <div className="text-sm font-s antialiased grid">
+                  <Link
+                    href={href}
+                    className="leading-6 text-primary-500 hover:text-primary-400"
+                    aria-label={`Link to ${title}`}
+                  >
+                    <span className="font-bold"> Julius Verne</span>
+                  </Link>
+                  <span className="text-gray-600 text-xs">Jul 21, 2021</span>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

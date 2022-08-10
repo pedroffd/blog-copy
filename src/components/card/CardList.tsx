@@ -15,6 +15,7 @@ const CardList = () => {
             description={cd.description}
             imgSrc={cd.imgSrc}
             href={cd.href}
+            authorAvatar={cd.authorAvatar}
           />
         ))}
       </div>
