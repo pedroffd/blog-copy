@@ -8,7 +8,7 @@ interface IAvatarProps {
 }
 
 const Avatar = (props: IAvatarProps) => (
-  <div className="flex items-center pt-2 pb-1 pr-4 h-16 avatar-group">
+  <div className="flex items-center pl-6 pt-2 pb-1 pr-4 h-16 avatar-group bg-green-400">
     <div className="avatar">
       {' '}
       <Image

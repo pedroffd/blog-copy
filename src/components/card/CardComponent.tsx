@@ -51,7 +51,7 @@ const CardComponent: React.FC<CardProps> = ({
             />
           ))}
         <div className="pt-6 pl-6 pb-3 pr-6">
-          <h2 className="mb-3 text-xl font-bold leading-8 tracking-tight">
+          <h2 className="mb-3 text-xl font-bold leading-8 tracking-tight bg-red-500">
             {href ? (
               <Link href={href} aria-label={`Link to ${title}`}>
                 {title}
@@ -60,15 +60,15 @@ const CardComponent: React.FC<CardProps> = ({
               title
             )}
           </h2>
-          <p className="prose mb-4 max-w-none text-gray-600">
+          <p className="prose mb-4 max-w-none text-gray-600 bg-blue-300">
             {description.substring(description, 111)}...
           </p>
-          <Avatar
-            authorAvatar={authorAvatar}
-            authorName="Julius Verne"
-            date="Jul 21, 2021"
-          />
         </div>
+        <Avatar
+          authorAvatar={authorAvatar}
+          authorName="Julius Verne"
+          date="Jul 21, 2021"
+        />
       </div>
     </div>
   );
