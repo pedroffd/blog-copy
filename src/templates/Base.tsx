@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-named-as-default
+import CardList from '@/components/card/CardList';
 import CategoryMenu from '@/components/menu/CategoryMenu';
 import SearchBoxComponent from '@/components/search/SearchBox';
 import { Meta } from '@/layout/Meta';
@@ -6,7 +8,7 @@ import { AppConfig } from '../utils/AppConfig';
 import { Banner } from './Banner';
 import { Footer } from './Footer';
 import { TopBar } from './TopBar';
-import { VerticalFeatures } from './VerticalFeatures';
+/* import { VerticalFeatures } from './VerticalFeatures'; */
 
 const Base = () => (
   <div className="container mx-auto bg-gray-100">
@@ -15,7 +17,8 @@ const Base = () => (
     <Banner />
     <SearchBoxComponent />
     <CategoryMenu />
-    <VerticalFeatures />
+    <CardList />
+    {/* <VerticalFeatures /> */}
     <Footer />
   </div>
 );
