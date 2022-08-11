@@ -12,6 +12,7 @@ const CardList = () => {
           <CardComponent
             key={cd.title}
             title={cd.title}
+            category="NFT"
             description={cd.description}
             imgSrc={cd.imgSrc}
             href={cd.href}

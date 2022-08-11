@@ -8,6 +8,7 @@ import { Avatar } from '@/components/avatar/Avatar';
 
 interface CardProps {
   title: string | undefined;
+  category: string;
   description: any;
   imgSrc: string;
   href: string | UrlObject;
@@ -15,6 +16,7 @@ interface CardProps {
 }
 const CardComponent: React.FC<CardProps> = ({
   title,
+  category,
   description,
   imgSrc,
   href,
@@ -28,7 +30,7 @@ const CardComponent: React.FC<CardProps> = ({
       <div
         className={`${
           imgSrc && 'h-full'
-        }  relative overflow-hidden  border-1 border-gray-200 border-opacity-60 bg-white`}
+        } relative overflow-hidden border-1 border-gray-200 border-opacity-60 bg-gray-100`}
       >
         {imgSrc &&
           (href ? (
@@ -36,7 +38,7 @@ const CardComponent: React.FC<CardProps> = ({
               <Image
                 alt={title}
                 src={imgSrc}
-                className=" rounded-[18px] object-cover object-center md:h-36 lg:h-48"
+                className="rounded-[18px] object-cover object-center md:h-36 lg:h-48"
                 width={544}
                 height={306}
               />
@@ -50,8 +52,11 @@ const CardComponent: React.FC<CardProps> = ({
               height={306}
             />
           ))}
-        <div className="pt-6 pl-6 pb-3 pr-6">
-          <h2 className="mb-3 text-xl font-bold leading-8 tracking-tight bg-red-500">
+        <div className="pt-4 pl-6 pb-14 pr-6">
+          <p className="pb-3 text-sm font-s text-blue-300 relative">
+            {category}
+          </p>
+          <h2 className="mb-3 text-xl font-bold leading-8 tracking-tight">
             {href ? (
               <Link href={href} aria-label={`Link to ${title}`}>
                 {title}
@@ -60,15 +65,18 @@ const CardComponent: React.FC<CardProps> = ({
               title
             )}
           </h2>
-          <p className="prose mb-4 max-w-none text-gray-600 bg-blue-300">
+          <p className="prose mb-4 max-w-none text-gray-600">
             {description.substring(description, 111)}...
           </p>
         </div>
-        <Avatar
-          authorAvatar={authorAvatar}
-          authorName="Julius Verne"
-          date="Jul 21, 2021"
-        />
+        <div className="absolute inset-x-0 bottom-0">
+          {' '}
+          <Avatar
+            authorAvatar={authorAvatar}
+            authorName="Julius Verne"
+            date="Jul 21, 2021"
+          />
+        </div>
       </div>
     </div>
   );

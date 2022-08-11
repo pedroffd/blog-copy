@@ -8,7 +8,7 @@ import { AppConfig } from '../utils/AppConfig';
 import { Banner } from './Banner';
 import { Footer } from './Footer';
 import { TopBar } from './TopBar';
-import { VerticalFeatures } from './VerticalFeatures';
+/* import { VerticalFeatures } from './VerticalFeatures'; */
 
 const Base = () => (
   <div className="container mx-auto bg-gray-100">
@@ -18,7 +18,7 @@ const Base = () => (
     <SearchBoxComponent />
     <CategoryMenu />
     <CardList />
-    <VerticalFeatures />
+    {/* <VerticalFeatures /> */}
     <Footer />
   </div>
 );
