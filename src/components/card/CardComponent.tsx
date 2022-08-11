@@ -4,6 +4,8 @@ import { UrlObject } from 'url';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { Avatar } from '@/components/avatar/Avatar';
+
 interface CardProps {
   title: string | undefined;
   description: any;
@@ -61,33 +63,11 @@ const CardComponent: React.FC<CardProps> = ({
           <p className="prose mb-4 max-w-none text-gray-600">
             {description.substring(description, 111)}...
           </p>
-
-          <div className="flex items-center bg-gray-100 pt-2 pb-1 pr-4 h-16 avatar-group">
-            {href && (
-              <>
-                <div className="p-3 avatar">
-                  {' '}
-                  <Image
-                    className="rounded-full"
-                    width={40}
-                    height={40}
-                    src={authorAvatar}
-                    alt="Rounded avatar"
-                  />
-                </div>
-                <div className="text-sm font-s antialiased grid">
-                  <Link
-                    href={href}
-                    className="leading-6 text-primary-500 hover:text-primary-400"
-                    aria-label={`Link to ${title}`}
-                  >
-                    <span className="font-bold"> Julius Verne</span>
-                  </Link>
-                  <span className="text-gray-600 text-xs">Jul 21, 2021</span>
-                </div>
-              </>
-            )}
-          </div>
+          <Avatar
+            authorAvatar={authorAvatar}
+            authorName="Julius Verne"
+            date="Jul 21, 2021"
+          />
         </div>
       </div>
     </div>
