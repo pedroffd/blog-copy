@@ -6,6 +6,7 @@ interface IAvatarProps {
   authorName: string;
   date?: string;
   lPadding?: string;
+  size?: number;
 }
 
 const Avatar = (props: IAvatarProps) => (
@@ -18,8 +19,8 @@ const Avatar = (props: IAvatarProps) => (
       {' '}
       <Image
         className="rounded-full"
-        width={35}
-        height={35}
+        width={`${props.size ? props.size : 35}`}
+        height={`${props.size ? props.size : 35}`}
         src={props.authorAvatar}
         alt="Rounded avatar"
       />

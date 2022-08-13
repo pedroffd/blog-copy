@@ -10,39 +10,34 @@ import cardData from '@/data/cardData';
 
 const HighlightedPost = () => {
   const highlight = cardData.filter((cd) => cd.isHighlighted);
-  const { title, category, description, imgSrc, href, authorAvatar } =
-    highlight[0];
+  const { title, description, imgSrc, href, authorAvatar } = highlight[0];
   return (
     <div className="flex flex-row max-w-screen-lg mx-auto px-6">
-      <div
-        className={`${
-          imgSrc && 'h-full'
-        } relative overflow-hidden border-1 border-gray-200 border-opacity-60 bg-gray-100`}
-      >
+      <div>
         {imgSrc &&
           (href ? (
             <Link href={href} aria-label={`Link to ${title}`}>
               <Image
                 alt={title}
                 src={imgSrc}
-                className="rounded-[18px] object-cover object-center md:h-36 lg:h-48"
-                width={500}
-                height={420}
+                className="rounded-[18px] object-cover object-center"
+                width={1080}
+                height={950}
               />
             </Link>
           ) : (
             <Image
               alt={title}
               src={imgSrc}
-              className="rounded-[18px] object-cover object-center md:h-36 lg:h-48"
-              width={544}
-              height={306}
+              className="rounded-[18px] object-cover object-center"
+              width={1080}
+              height={950}
             />
           ))}
       </div>
-      <div className="pt-4 pl-6 pb-14 pr-6">
-        <p className="pb-3 text-md font-s text-blue-300">{category}</p>
-        <h2 className="mb-3 text-xl font-bold leading-8 tracking-tight">
+      <div className="pt-4 pl-9 pr-6">
+        <p className="pb-3 text-md  text-blue-300">Technology</p>
+        <h2 className="mb-3 text-4xl font-semibold leading-10 tracking-normal">
           {href ? (
             <Link href={href} aria-label={`Link to ${title}`}>
               {title}
@@ -51,15 +46,18 @@ const HighlightedPost = () => {
             title
           )}
         </h2>
-        <p className="prose mb-4 max-w-none text-gray-600">
-          {description.substring(description, 111)}...
+        <p className="prose mb-4 max-w-none text-gray-600 pt-8">
+          {description.substring(description, 172)}...
         </p>
-
-        <Avatar
-          authorAvatar={authorAvatar}
-          authorName="Julius Verne"
-          date="Jul 21, 2021"
-        />
+        <div className="pt-2 bottom-0">
+          <Avatar
+            authorAvatar={authorAvatar}
+            authorName="Julius Verne"
+            date="Jul 21, 2021"
+            lPadding="0"
+            size={45}
+          />
+        </div>
       </div>
     </div>
   );
