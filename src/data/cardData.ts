@@ -1,12 +1,13 @@
 const projectsData: Array<any> = [
   {
-    title: 'On Your Mental Podcast',
-    description: `Website for Reuben's podcast On Your Mental. This was a great learning experience to teach me about Tailwind CSS and Nextjs.`,
+    title: 'An extraordinary WebGL Has Been Released By Great China Scientists',
+    description: `Back in 2019, Gucci brought video games to its app with a new section called Gucci Arcade, Inspired by creative director Alessandro Michele's..unique ability to combine the`,
     imgSrc:
       'https://lh3.googleusercontent.com/IzsRuPJku1k3Ejr7OjGuPmIWra4IfcK-YQ0hPu2Ic-W-RZ4dAChtjQXsr34c2p1MGU1UFEg2SHUHJ0jk1GNXnN4heW0v0kafV8aCvw',
     href: 'https://www.toxicskullsclub.io/',
     authorAvatar:
       'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/69/69e67a92e18a30adf84cb79bb13cb8d1862fc0b4_full.jpg',
+    isHighlighted: true,
   },
   {
     title: 'Kimetsu no Yaiba',
@@ -16,6 +17,7 @@ const projectsData: Array<any> = [
     href: 'https://github.com/Cwarcup/tinyapp',
     authorAvatar:
       'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/69/69e67a92e18a30adf84cb79bb13cb8d1862fc0b4_full.jpg',
+    isHighlighted: false,
   },
   {
     title: 'Days Gone',
@@ -25,6 +27,7 @@ const projectsData: Array<any> = [
     href: 'https://www.npmjs.com/package/@cwarcup/lotide',
     authorAvatar:
       'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/69/69e67a92e18a30adf84cb79bb13cb8d1862fc0b4_full.jpg',
+    isHighlighted: false,
   },
   {
     title: 'Snake Client Game',
@@ -34,6 +37,7 @@ const projectsData: Array<any> = [
     href: 'https://github.com/Cwarcup/snake-client',
     authorAvatar:
       'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/69/69e67a92e18a30adf84cb79bb13cb8d1862fc0b4_full.jpg',
+    isHighlighted: false,
   },
   {
     title: 'jsBooks - Interactive Notes and Code Cells',
@@ -43,6 +47,7 @@ const projectsData: Array<any> = [
     href: 'https://github.com/Cwarcup/jbook',
     authorAvatar:
       'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/69/69e67a92e18a30adf84cb79bb13cb8d1862fc0b4_full.jpg',
+    isHighlighted: false,
   },
   {
     title: 'React with Redux Youtube Search',
@@ -52,6 +57,7 @@ const projectsData: Array<any> = [
     href: 'https://yt-video-player.vercel.app/',
     authorAvatar:
       'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/69/69e67a92e18a30adf84cb79bb13cb8d1862fc0b4_full.jpg',
+    isHighlighted: false,
   },
   {
     title: 'Bar Chart Generator',
@@ -61,6 +67,7 @@ const projectsData: Array<any> = [
     href: 'https://github.com/Cwarcup/stretch-project-1',
     authorAvatar:
       'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/69/69e67a92e18a30adf84cb79bb13cb8d1862fc0b4_full.jpg',
+    isHighlighted: false,
   },
   {
     title: 'CSS Toggle Theme',
@@ -70,6 +77,7 @@ const projectsData: Array<any> = [
     href: 'https://cwarcup.github.io/css-toggle-theme/',
     authorAvatar:
       'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/69/69e67a92e18a30adf84cb79bb13cb8d1862fc0b4_full.jpg',
+    isHighlighted: false,
   },
   {
     title: 'Responsive Icon Navbar',
@@ -79,6 +87,7 @@ const projectsData: Array<any> = [
     href: 'https://cwarcup.github.io/responsive-icon-navbar/',
     authorAvatar:
       'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/69/69e67a92e18a30adf84cb79bb13cb8d1862fc0b4_full.jpg',
+    isHighlighted: false,
   },
   {
     title: 'Search NPM Modules',
@@ -88,6 +97,7 @@ const projectsData: Array<any> = [
     href: 'https://cwarcup.github.io/redux-ts-react/',
     authorAvatar:
       'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/69/69e67a92e18a30adf84cb79bb13cb8d1862fc0b4_full.jpg',
+    isHighlighted: false,
   },
   {
     title: 'Infinite Scroll',
@@ -97,6 +107,7 @@ const projectsData: Array<any> = [
     href: 'https://cwarcup.github.io/infinite_scroll/',
     authorAvatar:
       'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/69/69e67a92e18a30adf84cb79bb13cb8d1862fc0b4_full.jpg',
+    isHighlighted: false,
   },
 
   {
@@ -107,6 +118,7 @@ const projectsData: Array<any> = [
     href: 'https://cwarcup.github.io/wavy-website/',
     authorAvatar:
       'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/69/69e67a92e18a30adf84cb79bb13cb8d1862fc0b4_full.jpg',
+    isHighlighted: false,
   },
   {
     title: 'Dad Quotes',
@@ -116,6 +128,7 @@ const projectsData: Array<any> = [
     href: 'https://cwarcup.github.io/dad-quotes/',
     authorAvatar:
       'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/69/69e67a92e18a30adf84cb79bb13cb8d1862fc0b4_full.jpg',
+    isHighlighted: false,
   },
   {
     title: 'Node Weather App',
@@ -125,6 +138,7 @@ const projectsData: Array<any> = [
     href: 'https://basic-weather-node-app.herokuapp.com/',
     authorAvatar:
       'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/69/69e67a92e18a30adf84cb79bb13cb8d1862fc0b4_full.jpg',
+    isHighlighted: false,
   },
 ];
 

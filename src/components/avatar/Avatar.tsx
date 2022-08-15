@@ -5,16 +5,22 @@ interface IAvatarProps {
   authorAvatar: string;
   authorName: string;
   date?: string;
+  lPadding?: string;
+  size?: number;
 }
 
 const Avatar = (props: IAvatarProps) => (
-  <div className="flex items-center pl-6 pt-2 pb-1 pr-4 avatar-group">
+  <div
+    className={`flex items-center pt-2 pb-1 pr-4 avatar-group ${
+      props.lPadding ? props.lPadding : ' pl-6'
+    }`}
+  >
     <div className="avatar">
       {' '}
       <Image
         className="rounded-full"
-        width={35}
-        height={35}
+        width={`${props.size ? props.size : 35}`}
+        height={`${props.size ? props.size : 35}`}
         src={props.authorAvatar}
         alt="Rounded avatar"
       />

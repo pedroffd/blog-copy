@@ -7,4 +7,5 @@ export type CardPost = {
   category: string;
   postUrl: string;
   authorAvatar: string;
+  isHighlighted: boolean;
 };
