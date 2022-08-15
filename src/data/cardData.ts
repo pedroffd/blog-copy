@@ -1,7 +1,7 @@
 const projectsData: Array<any> = [
   {
-    title: 'On Your Mental Podcast',
-    description: `Website for Reuben's podcast On Your Mental. This was a great learning experience to teach me about Tailwind CSS and Nextjs.`,
+    title: 'An extraordinary WebGL Has Been Released By Great China Scientists',
+    description: `Back in 2019, Gucci brought video games to its app with a new section called Gucci Arcade, Inspired by creative director Alessandro Michele's..unique ability to combine the`,
     imgSrc:
       'https://lh3.googleusercontent.com/IzsRuPJku1k3Ejr7OjGuPmIWra4IfcK-YQ0hPu2Ic-W-RZ4dAChtjQXsr34c2p1MGU1UFEg2SHUHJ0jk1GNXnN4heW0v0kafV8aCvw',
     href: 'https://www.toxicskullsclub.io/',
