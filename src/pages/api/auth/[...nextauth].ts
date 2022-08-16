@@ -9,7 +9,7 @@ const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-      profile(profile) {
+      /* profile(profile) {
         return {
           id: profile.id.toString(),
           name: profile.name || profile.login,
@@ -17,7 +17,7 @@ const authOptions = {
           email: profile.email,
           image: profile.avatar_url,
         };
-      },
+      }, */
       authorization: {
         params: {
           prompt: 'consent',
@@ -28,7 +28,11 @@ const authOptions = {
     }),
   ],
   adapter: PrismaAdapter(prisma),
+  secret: process.env.NEXT_PUBLIC_SECRET_KEY,
   callbacks: {
+    async redirect({ '/': any }) {
+      return '/';
+    },
     session: ({ session, user }) => ({
       ...session,
       user: {
