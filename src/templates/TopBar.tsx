@@ -7,11 +7,13 @@ import { NavbarThreeColumns } from '../navigation/NavbarThreeColumns';
 import { Logo } from './Logo';
 
 const TopBar = () => (
-  <Section yPadding="py-6">
+  <Section yPadding="py-6" divId="TopBar">
     <NavbarThreeColumns logo={<Logo xl />}>
       <li>
         <Link href="https://github.com/pedroffd/troca-online">
-          <Image src={BeLogo} alt="Behance Logo" height={32} width={32} />
+          <a>
+            <Image src={BeLogo} alt="Behance Logo" height={32} width={32} />
+          </a>
         </Link>
       </li>
       <li>

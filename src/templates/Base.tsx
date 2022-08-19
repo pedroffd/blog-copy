@@ -12,7 +12,7 @@ import { TopBar } from './TopBar';
 /* import { VerticalFeatures } from './VerticalFeatures'; */
 
 const Base = () => (
-  <div className="container mx-auto bg-gray-100">
+  <div className="container mx-auto bg-gray-100" id="baseTemplate">
     <Meta title={AppConfig.title} description={AppConfig.description} />
     <TopBar />
     <Banner />

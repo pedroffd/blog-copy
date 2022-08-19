@@ -26,6 +26,7 @@ const CardComponent: React.FC<CardProps> = ({
 
   return (
     <div
+      id="cardComponent"
       className="group relative p-3 pb-5 md:w-4/12"
       style={{ maxWidth: '544px' }}
     >
@@ -37,22 +38,26 @@ const CardComponent: React.FC<CardProps> = ({
         {imgSrc &&
           (href ? (
             <Link href={href} aria-label={`Link to ${title}`}>
+              <a>
+                <Image
+                  alt={title}
+                  src={imgSrc}
+                  className="rounded-[18px] object-cover object-center md:h-36 lg:h-48"
+                  width={544}
+                  height={400}
+                />
+              </a>
+            </Link>
+          ) : (
+            <a>
               <Image
                 alt={title}
                 src={imgSrc}
-                className="rounded-[18px] object-cover object-center md:h-36 lg:h-48"
+                className="object-cover object-center md:h-36 lg:h-48"
                 width={544}
-                height={400}
+                height={306}
               />
-            </Link>
-          ) : (
-            <Image
-              alt={title}
-              src={imgSrc}
-              className="object-cover object-center md:h-36 lg:h-48"
-              width={544}
-              height={306}
-            />
+            </a>
           ))}
         <div className="pt-4 pl-6 pb-14 pr-6">
           <p className="pb-3 text-sm font-s text-blue-300 relative">

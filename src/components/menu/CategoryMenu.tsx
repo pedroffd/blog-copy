@@ -13,11 +13,11 @@ interface NavItem {
 const MENU_ITEMS: Array<NavItem> = [
   {
     label: 'All',
-    href: '/route',
+    href: 'https://www.youtube.com/watch?v=OE4IupjQjzE&t=1176',
   },
   {
     label: 'Fantasy',
-    href: '/route',
+    href: 'https://next-auth.js.org/configuration/callbacks#sign-in-callback',
   },
   {
     label: 'NFT',
@@ -25,7 +25,7 @@ const MENU_ITEMS: Array<NavItem> = [
   },
   {
     label: 'Abstra',
-    href: '/route',
+    href: 'https://bobbyhadz.com/blog/typescript-binding-element-implicitly-has-an-any-type#:~:text=The%20error%20%22Binding%20element%20implicitly,functions%20and%20in%20class%20methods.',
   },
   {
     label: 'Anime',
@@ -33,11 +33,11 @@ const MENU_ITEMS: Array<NavItem> = [
   },
   {
     label: 'Games',
-    href: '/route',
+    href: 'https://www.prisma.io/docs/guides/development-environment/environment-variables',
   },
   {
     label: 'Technology',
-    href: '/route',
+    href: 'https://nextjs.org/docs/api-reference/next.config.js/basepath',
   },
 ];
 
