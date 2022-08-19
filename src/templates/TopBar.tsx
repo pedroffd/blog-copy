@@ -6,28 +6,23 @@ import { Section } from '../layout/Section';
 import { NavbarThreeColumns } from '../navigation/NavbarThreeColumns';
 import { Logo } from './Logo';
 
-const TopBar = (_loggedData: any) => {
-  // eslint-disable-next-line no-console
-  console.log('_loggedData: ', _loggedData);
-  return (
-    <Section yPadding="py-6" key="topbar">
-      <NavbarThreeColumns logo={<Logo xl />}>
-        <li>
-          <Link href="https://github.com/pedroffd/troca-online">
+const TopBar = () => (
+  <Section yPadding="py-6" divId="TopBar">
+    <NavbarThreeColumns logo={<Logo xl />}>
+      <li>
+        <Link href="https://github.com/pedroffd/troca-online">
+          <a>
             <Image src={BeLogo} alt="Behance Logo" height={32} width={32} />
-          </Link>
-        </li>
-        <li>
-          <a>Sign out</a>
-        </li>
-        <li>
-          <Link href="/">
-            <a>Sign in</a>
-          </Link>
-        </li>
-      </NavbarThreeColumns>
-    </Section>
-  );
-};
+          </a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/">
+          <a>Sign in</a>
+        </Link>
+      </li>
+    </NavbarThreeColumns>
+  </Section>
+);
 
 export { TopBar };

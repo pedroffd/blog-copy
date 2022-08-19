@@ -11,10 +11,10 @@ import { Footer } from './Footer';
 import { TopBar } from './TopBar';
 /* import { VerticalFeatures } from './VerticalFeatures'; */
 
-const Base = (_sessionData: any) => (
-  <div className="container mx-auto bg-gray-100">
+const Base = () => (
+  <div className="container mx-auto bg-gray-100" id="baseTemplate">
     <Meta title={AppConfig.title} description={AppConfig.description} />
-    <TopBar loggedData={_sessionData} />
+    <TopBar />
     <Banner />
     <SearchBoxComponent />
     <CategoryMenu />
