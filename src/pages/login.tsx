@@ -109,7 +109,7 @@ function Login() {
           </div>
         </div>
         <div className="py-5">
-          <div className="grid grid-cols-2 gap-1">
+          {/* <div className="grid grid-cols-2 gap-1">
             <div className="text-center sm:text-left whitespace-nowrap">
               <button className="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
                 <svg
@@ -129,7 +129,7 @@ function Login() {
                 <span className="inline-block ml-1">Back</span>
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

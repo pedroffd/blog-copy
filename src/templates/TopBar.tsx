@@ -1,7 +1,9 @@
 import { Session } from 'next-auth';
-import { useSession, signOut } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import useRequireAuth from '@/../lib/useRequireAuth';
 
 import BeLogo from '../images/logos/behance.svg';
 import { Section } from '../layout/Section';
@@ -25,7 +27,7 @@ function renderSignButton(session: Session | null) {
   );
 }
 const TopBar = () => {
-  const { data: session } = useSession();
+  const session = useRequireAuth();
   return (
     <Section yPadding="py-6" divId="TopBar">
       <NavbarThreeColumns logo={<Logo xl />}>
