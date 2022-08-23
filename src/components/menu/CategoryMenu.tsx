@@ -44,7 +44,7 @@ const MENU_ITEMS: Array<NavItem> = [
 const TestComponent = () => {
   // const [selected, setSelected] = useState<boolean>(false);
   return (
-    <Section yPadding="py-6">
+    <Section yPadding="py-6" key="categoryMenu">
       <nav
         className="z-0 relative"
         x-data="{open:false,menu:false, lokasi:false}"
