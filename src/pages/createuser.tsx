@@ -1,9 +1,27 @@
+import { useState } from 'react';
+
 import { Prisma } from '@prisma/client';
 import { Container, Form, Header } from 'semantic-ui-react';
 
+import prisma from '@/../lib/prisma';
 import { fetcher } from '@/utils/fetcher';
 
-export default function CreateUser() {
+export async function getServerSideProps() {
+  const users: Prisma.UserUncheckedCreateInput[] = await prisma.user.findMany();
+  return {
+    props: { initialUsers: users },
+  };
+}
+export default function CreateUser({ initialUsers }) {
+  const [users, setUsers] =
+    useState<Prisma.UserUncheckedCreateInput[]>(initialUsers);
+  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [avatar, setAvatar] = useState('');
+  const [role, setRole] = useState();
+
+  const handleChange = (e, { value }) => setRole(value);
   return (
     <Container style={{ margin: 20 }}>
       <Header as="h3">App next js auth create user page</Header>
@@ -17,8 +35,55 @@ export default function CreateUser() {
             avatar,
           };
           await fetcher('/api/create', { user: body });
+          await setUsers([...users, body]);
+          setName('');
+          setUsername('');
+          setEmail('');
+          setAvatar('');
+          setRole(null);
         }}
-      ></Form>
+      >
+        <Form.Group widths="equal">
+          <Form.Input
+            fluid
+            label="Name"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <br />
+          <Form.Input
+            fluid
+            label="Username"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <Form.Input
+            fluid
+            label="Email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Form.Input
+            fluid
+            label="Avatar"
+            placeholder="Avatar"
+            value={avatar}
+            onChange={(e) => setAvatar(e.target.value)}
+          />
+          <Form.Select
+            fluid
+            label="Role"
+            placeholder="Role"
+            options={options}
+            value={role}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Button>Submit</Form.Button>
+      </Form>
     </Container>
   );
 }
