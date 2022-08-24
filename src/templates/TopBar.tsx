@@ -1,16 +1,16 @@
-import { Session } from 'next-auth';
-import { signOut } from 'next-auth/react';
+/* import { Session } from 'next-auth';
+import { signOut } from 'next-auth/react'; */
 import Image from 'next/image';
 import Link from 'next/link';
-
-import useRequireAuth from '@/../lib/useRequireAuth';
+/* 
+import useRequireAuth from '@/../lib/useRequireAuth'; */
 
 import BeLogo from '../images/logos/behance.svg';
 import { Section } from '../layout/Section';
 import { NavbarThreeColumns } from '../navigation/NavbarThreeColumns';
 import { Logo } from './Logo';
 
-function renderSignButton(session: Session | null) {
+/* function renderSignButton(session: Session | null) {
   return session?.user?.name ? (
     <li>
       <button onClick={() => signOut()}>
@@ -25,9 +25,9 @@ function renderSignButton(session: Session | null) {
       </Link>
     </li>
   );
-}
+} */
 const TopBar = () => {
-  const session = useRequireAuth();
+  /*  const session = useRequireAuth(); */
   return (
     <Section yPadding="py-6" divId="TopBar">
       <NavbarThreeColumns logo={<Logo xl />}>
@@ -38,7 +38,7 @@ const TopBar = () => {
             </a>
           </Link>
         </li>
-        {renderSignButton(session)}
+        {/*  {renderSignButton(session)} */}
       </NavbarThreeColumns>
     </Section>
   );

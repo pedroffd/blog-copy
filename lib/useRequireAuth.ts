@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+/* import { useEffect } from 'react';
 
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
@@ -17,3 +17,4 @@ function useRequireAuth() {
 }
 
 export default useRequireAuth;
+ */

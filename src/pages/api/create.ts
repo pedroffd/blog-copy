@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+/* import { NextApiRequest, NextApiResponse } from 'next';
 
 import prisma from '@/../lib/prisma';
 
@@ -18,3 +18,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(400).json({ message: 'Something went wrong' });
   }
 };
+ */
