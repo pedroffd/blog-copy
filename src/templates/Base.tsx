@@ -26,3 +26,7 @@ const Base = () => (
 );
 
 export { Base };
+/* function session(_session: any) {
+  throw new Error('Function not implemented.');
+}
+ */
