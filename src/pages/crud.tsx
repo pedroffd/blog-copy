@@ -33,39 +33,28 @@ const Crud = ({ notes }: Notes) => {
 
   async function create(data: FormData) {
     try {
-      fetch('http://localhost:3000/api/create', {
+      fetch('http://localhost:3000/api/createnode', {
         body: JSON.stringify(data),
         headers: {
           'Content-Type': 'application/json',
         },
         method: 'POST',
       }).then(() => {
-        if (data.id) {
+        /*   if (data.id) {
           deleteNote(data.id);
           setForm({ title: '', content: '', id: '' });
           refreshData();
-        } else {
-          setForm({ title: '', content: '', id: '' });
-          refreshData();
-        }
+        } else { */
+        setForm({ title: '', content: '', id: '' });
+        refreshData();
+        /*   } */
       });
     } catch (error) {
       console.log(error);
     }
   }
 
-  async function update(data: FormData) {
-    try {
-      where: {
-        id: data.id;
-      },
-      data: FormData
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async function deleteNote(id: string) {
+  /*   async function deleteNote(id: string) {
     try {
       fetch(`http://localhost:3000/api/note/${id}`, {
         headers: {
@@ -78,7 +67,7 @@ const Crud = ({ notes }: Notes) => {
     } catch (error) {
       console.log(error);
     }
-  }
+  } */
 
   const handleSubmit = async (data: FormData) => {
     try {
