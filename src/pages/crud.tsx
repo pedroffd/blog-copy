@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+// export default async function handle(req, res) {
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 
@@ -49,6 +49,17 @@ const Crud = ({ notes }: Notes) => {
           refreshData();
         }
       });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function update(data: FormData) {
+    try {
+      where: {
+        id: data.id;
+      },
+      data: FormData
     } catch (error) {
       console.log(error);
     }
