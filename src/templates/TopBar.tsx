@@ -2,9 +2,10 @@ import { useSession, signOut } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import BeLogo from '../images/logos/behance.svg';
-import { Section } from '../layout/Section';
-import { NavbarThreeColumns } from '../navigation/NavbarThreeColumns';
+import BeLogo from '@/images/logos/behance.svg';
+import { Section } from '@/layout/Section';
+import { NavbarThreeColumns } from '@/navigation/NavbarThreeColumns';
+
 import { Logo } from './Logo';
 
 function logout() {

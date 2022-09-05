@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // export default async function handle(req, res) {
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
@@ -31,9 +32,9 @@ const Crud = ({ notes }: Notes) => {
     router.replace(router.asPath);
   };
 
-  async function create(data: FormData) {
+  const create = async (data: FormData) => {
     try {
-      fetch('http://localhost:3000/api/createnode', {
+      await fetch('http://localhost:3000/api/createnode', {
         body: JSON.stringify(data),
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +53,7 @@ const Crud = ({ notes }: Notes) => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   /*   async function deleteNote(id: string) {
     try {

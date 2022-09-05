@@ -1,11 +1,12 @@
-/* import React from 'react';
+import React from 'react';
 
 import { GetServerSideProps } from 'next';
 import { useSession, getSession } from 'next-auth/react';
 
 import prisma from '@/../lib/prisma';
-import Layout from '@/components/basicpost/Layout';
 import Post, { PostProps } from '@/components/basicpost/Post';
+import { Section } from '@/layout/Section';
+import { CreatorHeader } from '@/navigation/CreatorHeader';
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const session = await getSession({ req });
@@ -16,7 +17,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 
   const drafts = await prisma.post.findMany({
     where: {
-      author: { email: 'pedro.alcarin+2@gmail.com' },
+      author: { email: session.user?.email },
       published: false,
     },
     include: {
@@ -39,15 +40,16 @@ const Drafts: React.FC<Props> = (props) => {
 
   if (!session) {
     return (
-      <Layout>
+      <Section yPadding="py-4" divId="drafts">
         <h1>My Drafts</h1>
         <div>You need to be authenticated to view this page.</div>
-      </Layout>
+      </Section>
     );
   }
 
   return (
-    <Layout>
+    <Section yPadding="py-4" divId="drafts">
+      <CreatorHeader />
       <div className="page">
         <h1>My Drafts</h1>
         <main>
@@ -58,23 +60,8 @@ const Drafts: React.FC<Props> = (props) => {
           ))}
         </main>
       </div>
-      <style jsx>{`
-        .post {
-          background: white;
-          transition: box-shadow 0.1s ease-in;
-        }
-
-        .post:hover {
-          box-shadow: 1px 1px 3px #aaa;
-        }
-
-        .post + .post {
-          margin-top: 2rem;
-        }
-      `}</style>
-    </Layout>
+    </Section>
   );
 };
 
 export default Drafts;
- */

@@ -6,7 +6,7 @@ import Router from 'next/router';
 import ReactMarkdown from 'react-markdown';
 
 import prisma from '@/../lib/prisma';
-import Layout from '@/components/basicpost/Layout';
+import { Section } from '@/layout/Section';
 import Post, { PostProps } from '@/components/basicpost/Post';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
@@ -52,7 +52,7 @@ const Post: React.FC<PostProps> = (props) => {
   }
 
   return (
-    <Layout>
+    <Section>
       <div>
         <h2>{title}</h2>
         <p>By {props?.author?.name || 'Unknown author'}</p>
@@ -85,7 +85,7 @@ const Post: React.FC<PostProps> = (props) => {
           margin-left: 1rem;
         }
       `}</style>
-    </Layout>
+    </Section>
   );
 };
 
