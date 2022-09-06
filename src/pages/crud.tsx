@@ -29,7 +29,6 @@ const Crud = ({ notes }: Notes) => {
     id: '',
   });
   const router = useRouter();
-
   const refreshData = () => {
     router.replace(router.asPath);
   };
@@ -37,7 +36,7 @@ const Crud = ({ notes }: Notes) => {
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
-      await fetch('http://localhost:3000/api/createnode', {
+      await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/createnode`, {
         body: JSON.stringify(form),
         headers: {
           'Content-Type': 'application/json',
@@ -95,8 +94,12 @@ const Crud = ({ notes }: Notes) => {
           onChange={(e) => setForm({ ...form, content: e.target.value })}
           className="border-2 rounded border-gray-600 p-1"
         />
-        <button type="submit" className="bg-blue-500 text-white rounded p-1">
-          Add +
+        <button
+          type="submit"
+          disabled={!form.content || !form.title}
+          className="bg-blue-500 text-white rounded p-1"
+        >
+          Create
         </button>
       </form>
       <div className="w-auto min-w-[25%] max-w-min mt-20 mx-auto space-y-6 flex flex-col items-stretch">

@@ -1,4 +1,4 @@
-/* import React from 'react';
+import React from 'react';
 
 import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
@@ -90,4 +90,3 @@ const Post: React.FC<PostProps> = (props) => {
 };
 
 export default Post;
- */
