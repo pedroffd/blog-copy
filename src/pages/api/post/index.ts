@@ -1,5 +1,5 @@
-/* // import { getSession } from 'next-auth/react';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { getSession } from 'next-auth/react';
 
 import prisma from '@/../lib/prisma';
 
@@ -10,17 +10,19 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { title, content } = req.body;
+  const { title, content, postUrl, category, image } = req.body;
 
-  // const session = await getSession({ req });
+  const session = await getSession({ req });
+  const email = session?.user?.email || 'pedro.alcarin@gmail.com';
   const result = await prisma.post.create({
     data: {
       title,
       content,
-      postUrl: 'testurl',
-      category: 'test',
-      image: 'test image',
+      postUrl,
+      category,
+      image,
+      author: { connect: { email } },
     },
   });
   res.json(result);
-} */
+}
