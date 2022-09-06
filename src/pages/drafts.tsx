@@ -42,7 +42,7 @@ const Drafts: React.FC<Props> = (props) => {
 
   if (!session) {
     return (
-      <Section yPadding="py-4" divId="drafts">
+      <Section yPadding="py-4" divId="draftsheader">
         <h1>My Drafts</h1>
         <div>You need to be authenticated to view this page.</div>
       </Section>

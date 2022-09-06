@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
+// line below should be used after the initial crud gets totally finished
+// import Router from 'next/router';
 // export default async function handle(req, res) {
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
@@ -32,10 +34,11 @@ const Crud = ({ notes }: Notes) => {
     router.replace(router.asPath);
   };
 
-  const create = async (data: FormData) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
     try {
       await fetch('http://localhost:3000/api/createnode', {
-        body: JSON.stringify(data),
+        body: JSON.stringify(form),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -48,6 +51,8 @@ const Crud = ({ notes }: Notes) => {
         } else { */
         setForm({ title: '', content: '', id: '' });
         refreshData();
+        // line below should be used after the initial crud gets totally finished
+        // await Router.push('/drafts');
         /*   } */
       });
     } catch (error) {
@@ -70,22 +75,11 @@ const Crud = ({ notes }: Notes) => {
     }
   } */
 
-  const handleSubmit = async (data: FormData) => {
-    try {
-      create(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <div>
       <h1 className="text-center font-bold text-2xl mt-4">Notes</h1>
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSubmit(form);
-        }}
+        onSubmit={handleSubmit}
         className="w-auto min-w-[25%] max-w-min mx-auto space-y-6 flex flex-col items-stretch"
       >
         <input
