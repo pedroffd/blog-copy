@@ -7,12 +7,12 @@ import ReactMarkdown from 'react-markdown';
 
 import prisma from '@/../lib/prisma';
 import { Section } from '@/layout/Section';
-import Post, { PostProps } from '@/components/basicpost/Post';
+import { PostProps } from '@/types/PostProps';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const post = await prisma.post.findUnique({
     where: {
-      id: String(params?.id),
+      id: Number(params?.id),
     },
     include: {
       author: {
@@ -20,8 +20,11 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       },
     },
   });
+
   return {
-    props: post,
+    props: {
+      post: JSON.parse(JSON.stringify(post)),
+    },
   };
 };
 
@@ -46,7 +49,7 @@ const Post: React.FC<PostProps> = (props) => {
   }
   const userHasValidSession = Boolean(session);
   const postBelongsToUser = session?.user?.email === props.author?.email;
-  let title = props.title;
+  let { title } = props;
   if (!props.published) {
     title = `${title} (Draft)`;
   }
@@ -56,7 +59,7 @@ const Post: React.FC<PostProps> = (props) => {
       <div>
         <h2>{title}</h2>
         <p>By {props?.author?.name || 'Unknown author'}</p>
-        <ReactMarkdown children={props.content} />
+        <div>{props.content} </div>
         {!props.published && userHasValidSession && postBelongsToUser && (
           <button onClick={() => publishPost(props.id)}>Publish</button>
         )}

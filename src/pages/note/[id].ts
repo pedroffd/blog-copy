@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+/* import { NextApiRequest, NextApiResponse } from 'next';
 import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import Router from 'next/router';
@@ -26,18 +26,17 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   };
 };
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  const noteId = req.query.id;
-
-  if (req.method === 'DELETE') {
-    const note = await prisma.note.delete({
-      where: { id: Number(noteId) },
-    });
-    res.json(note);
-  } else {
-    res.status(400).send({ message: 'error' });
-  }
+async function publishPost(id: string): Promise<void> {
+  await fetch(`/api/publish/${id}`, {
+    method: 'PUT',
+  });
+  await Router.push('/');
 }
+
+async function deletePost(id: string): Promise<void> {
+  await fetch(`/api/post/${id}`, {
+    method: 'DELETE',
+  });
+  Router.push('/');
+}
+ */
