@@ -1,6 +1,6 @@
 export type CardPost = {
   id: number;
-  image: string;
+  imgSrc: string;
   authorName: string;
   content: string;
   createdAt: Date;

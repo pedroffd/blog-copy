@@ -49,6 +49,7 @@ const Drafts: React.FC<Props> = (props) => {
       </Section>
     );
   }
+  console.log('DRAFTS: ', props.drafts[0]?.author);
 
   return (
     <Section yPadding="py-4" divId="drafts">

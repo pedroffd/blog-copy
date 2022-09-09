@@ -9,7 +9,7 @@ interface FormData {
   title: string;
   content: string;
   category: string;
-  image: string;
+  imgSrc: string;
 }
 
 const Draft: React.FC = () => {
@@ -19,7 +19,7 @@ const Draft: React.FC = () => {
     title: '',
     content: '',
     category: '',
-    image: '',
+    imgSrc: '',
   });
 
   const submitData = async (e: React.SyntheticEvent) => {
@@ -37,7 +37,7 @@ const Draft: React.FC = () => {
       console.error(error);
     }
   };
-  //  const { title, content, postUrl, category, image } = req.body;
+  //  const { title, content, postUrl, category, imgSrc } = req.body;
   return (
     <>
       <CreatorHeader />
@@ -68,10 +68,10 @@ const Draft: React.FC = () => {
             />
             <input
               autoFocus
-              onChange={(e) => setForm({ ...form, image: e.target.value })}
+              onChange={(e) => setForm({ ...form, imgSrc: e.target.value })}
               placeholder="Image"
               type="text"
-              value={form.image}
+              value={form.imgSrc}
             />
             <input
               disabled={!form.content || !form.title}

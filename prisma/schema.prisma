@@ -68,17 +68,18 @@ model VerificationToken {
 }
 
 model Post {
-  id        Int      @id @default(autoincrement())
-  image     String
-  title     String
-  author    User?    @relation(fields: [authorId], references: [id])
-  authorId  Int?
-  content   String?
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @updatedAt @map(name: "updated_at")
-  category  String
-  postUrl   String?  @default("postURL")
-  published Boolean  @default(false)
+  id            Int      @id @default(autoincrement())
+  imgSrc        String
+  title         String
+  author        User?    @relation(fields: [authorId], references: [id])
+  authorId      Int?
+  content       String?
+  createdAt     DateTime @default(now()) @map(name: "created_at")
+  updatedAt     DateTime @updatedAt @map(name: "updated_at")
+  category      String
+  postUrl       String?  @default("postURL")
+  published     Boolean  @default(false)
+  isHighlighted Boolean  @default(false)
 }
 
 model Note {

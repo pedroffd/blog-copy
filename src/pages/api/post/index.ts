@@ -10,7 +10,7 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { title, content, category, image } = req.body;
+  const { title, content, category, imgSrc } = req.body;
 
   const session = await getSession({ req });
   const email = session?.user?.email || 'pedro.alcarin@gmail.com';
@@ -20,7 +20,7 @@ export default async function handle(
         title,
         content,
         category,
-        image,
+        imgSrc,
         author: { connect: { email } },
       },
     });
