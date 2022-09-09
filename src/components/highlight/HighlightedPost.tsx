@@ -3,23 +3,40 @@
 /* import { CardPost } from '@/types/CardPost'; */
 import React from 'react';
 
-import Image from 'next/image';
-import Link from 'next/link';
+import { GetServerSideProps } from 'next';
+/* import Image from 'next/image';
+import Link from 'next/link'; */
 
-import { Avatar } from '@/components/avatar/Avatar';
-import cardData from '@/data/cardData';
+import prisma from '@/../lib/prisma';
+// import { Avatar } from '@/components/avatar/Avatar';
+import { PostProps } from '@/types/PostProps';
 
-function returnHighlightPost() {
-  const highlight = cardData.filter((cd) => cd.isHighlighted);
-  return highlight[0];
-}
+export const getServerSideProps: GetServerSideProps = async () => {
+  const post = await prisma.post.findFirst({
+    where: {
+      published: true,
+    },
+    /* include: {
+      author: {
+        select: { name: true, email: true, image: true },
+      },
+    }, */
+  });
+
+  return {
+    props: JSON.parse(JSON.stringify(post)),
+  };
+};
+
 // eslint-disable-next-line import/no-mutable-exports
-const HighlightedPost = () => {
-  const highlight = returnHighlightPost();
-  const { title, content, imgSrc, postUrl, authorAvatar } = highlight;
+const HighlightedPost: React.FC<PostProps> = (props) => {
+  console.log('HIGHLIGHT: ', props);
+  /*  const authorAvatar = props.post?.author?.image;
+  const { title, content, imgSrc, postUrl } = props; */
   return (
     <div className="flex flex-row max-w-screen-lg mx-auto px-6">
-      <Link href={postUrl} aria-label={`Link to ${title}`}>
+      test
+      {/* <Link href={postUrl} aria-label={`Link to ${title}`}>
         <a>
           {' '}
           <Image
@@ -50,7 +67,7 @@ const HighlightedPost = () => {
             size={45}
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -52,7 +52,6 @@ const Post: React.FC<PostProps> = (props) => {
   if (!props.published) {
     title = `${title} (Draft)`;
   }
-  console.log('POST: ', props.post);
   return (
     <Section>
       <div>
