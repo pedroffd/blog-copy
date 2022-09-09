@@ -16,10 +16,10 @@ function returnHighlightPost() {
 // eslint-disable-next-line import/no-mutable-exports
 const HighlightedPost = () => {
   const highlight = returnHighlightPost();
-  const { title, description, imgSrc, href, authorAvatar } = highlight;
+  const { title, content, imgSrc, postUrl, authorAvatar } = highlight;
   return (
     <div className="flex flex-row max-w-screen-lg mx-auto px-6">
-      <Link href={href} aria-label={`Link to ${title}`}>
+      <Link href={postUrl} aria-label={`Link to ${title}`}>
         <a>
           {' '}
           <Image
@@ -34,12 +34,12 @@ const HighlightedPost = () => {
       <div className="pt-4 pl-9 pr-6">
         <p className="pb-3 text-md  text-blue-300">Technology</p>
         <h2 className="mb-3 text-4xl font-semibold leading-10 tracking-normal">
-          <Link href={href} aria-label={`Link to ${title}`}>
+          <Link href={postUrl} aria-label={`Link to ${title}`}>
             {title}
           </Link>
         </h2>
         <p className="prose mb-4 max-w-none text-gray-600 pt-8">
-          {description.substring(description, 172)}...
+          {content.substring(content, 172)}...
         </p>
         <div className="pt-2 bottom-0">
           <Avatar

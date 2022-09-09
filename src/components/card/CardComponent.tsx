@@ -9,17 +9,17 @@ import { Avatar } from '@/components/avatar/Avatar';
 interface CardProps {
   title: string | undefined;
   category: string;
-  description: any;
+  content: any;
   imgSrc: string;
-  href: string | UrlObject;
+  postUrl: string | UrlObject;
   authorAvatar: string;
 }
 const CardComponent: React.FC<CardProps> = ({
   title,
   category,
-  description,
+  content,
   imgSrc,
-  href,
+  postUrl,
   authorAvatar,
 }) => {
   // const { id,image, authorName, post, date, category, postUrl, authorAvatar } = props;
@@ -36,8 +36,8 @@ const CardComponent: React.FC<CardProps> = ({
         } relative overflow-hidden border-1 border-gray-200 border-opacity-60 bg-gray-100`}
       >
         {imgSrc &&
-          (href ? (
-            <Link href={href} aria-label={`Link to ${title}`}>
+          (postUrl ? (
+            <Link href={postUrl} aria-label={`Link to ${title}`}>
               <a>
                 <Image
                   alt={title}
@@ -64,8 +64,8 @@ const CardComponent: React.FC<CardProps> = ({
             {category}
           </p>
           <h2 className="mb-3 text-xl font-bold leading-8 tracking-tight">
-            {href ? (
-              <Link href={href} aria-label={`Link to ${title}`}>
+            {postUrl ? (
+              <Link href={postUrl} aria-label={`Link to ${title}`}>
                 {title}
               </Link>
             ) : (
@@ -73,7 +73,7 @@ const CardComponent: React.FC<CardProps> = ({
             )}
           </h2>
           <p className="prose mb-4 max-w-none text-gray-600">
-            {description.substring(description, 111)}...
+            {content.substring(content, 111)}...
           </p>
         </div>
         <div className="absolute inset-x-0 bottom-0">
