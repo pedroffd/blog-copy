@@ -10,19 +10,22 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { title, content, postUrl, category, image } = req.body;
+  const { title, content, category, image } = req.body;
 
   const session = await getSession({ req });
   const email = session?.user?.email || 'pedro.alcarin@gmail.com';
-  const result = await prisma.post.create({
-    data: {
-      title,
-      content,
-      postUrl,
-      category,
-      image,
-      author: { connect: { email } },
-    },
-  });
-  res.json(result);
+  try {
+    const result = await prisma.post.create({
+      data: {
+        title,
+        content,
+        category,
+        image,
+        author: { connect: { email } },
+      },
+    });
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(400).send({ message: 'error' });
+  }
 }

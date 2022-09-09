@@ -77,7 +77,7 @@ model Post {
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @updatedAt @map(name: "updated_at")
   category  String
-  postUrl   String
+  postUrl   String?  @default("postURL")
   published Boolean  @default(false)
 }
 

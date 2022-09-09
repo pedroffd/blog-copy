@@ -1,6 +1,8 @@
 export type PostProps = {
+  post: any;
   id: string;
   title: string;
+  postUrl: string;
   author: {
     name: string;
     email: string;

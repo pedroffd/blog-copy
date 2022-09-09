@@ -3,7 +3,6 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import Router from 'next/router';
-import ReactMarkdown from 'react-markdown';
 
 import prisma from '@/../lib/prisma';
 import { Section } from '@/layout/Section';
@@ -47,47 +46,25 @@ const Post: React.FC<PostProps> = (props) => {
   if (status === 'loading') {
     return <div>Authenticating ...</div>;
   }
-  const userHasValidSession = Boolean(session);
-  const postBelongsToUser = session?.user?.email === props.author?.email;
-  let { title } = props;
+  const userHasValidSession = Boolean(session?.user?.name);
+  const postBelongsToUser = session?.user?.email === props.post?.author?.email;
+  let { title } = props.post;
   if (!props.published) {
     title = `${title} (Draft)`;
   }
-
   return (
     <Section>
       <div>
         <h2>{title}</h2>
-        <p>By {props?.author?.name || 'Unknown author'}</p>
+        <p>By {props?.post.author?.name || 'Unknown author'}</p>
         <div>{props.content} </div>
         {!props.published && userHasValidSession && postBelongsToUser && (
-          <button onClick={() => publishPost(props.id)}>Publish</button>
+          <button onClick={() => publishPost(props.post.id)}>Publish</button>
         )}
         {userHasValidSession && postBelongsToUser && (
-          <button onClick={() => deletePost(props.id)}>Delete</button>
+          <button onClick={() => deletePost(props.post.id)}>Delete</button>
         )}
       </div>
-      <style jsx>{`
-        .page {
-          background: white;
-          padding: 2rem;
-        }
-
-        .actions {
-          margin-top: 2rem;
-        }
-
-        button {
-          background: #ececec;
-          border: 0;
-          border-radius: 0.125rem;
-          padding: 1rem 2rem;
-        }
-
-        button + button {
-          margin-left: 1rem;
-        }
-      `}</style>
     </Section>
   );
 };
