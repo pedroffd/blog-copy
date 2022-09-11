@@ -10,22 +10,41 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { title, content, category, imgSrc } = req.body;
+  if (req.method === 'POST') {
+    const { title, content, category, imgSrc } = req.body;
 
-  const session = await getSession({ req });
-  const email = session?.user?.email || 'pedro.alcarin@gmail.com';
-  try {
-    const result = await prisma.post.create({
-      data: {
-        title,
-        content,
-        category,
-        imgSrc,
-        author: { connect: { email } },
-      },
-    });
-    res.status(200).json(result);
-  } catch (error) {
-    res.status(400).send({ message: 'error' });
+    const session = await getSession({ req });
+    try {
+      const email = session?.user?.email || 'pedro.alcarin@gmail.com';
+      const result = await prisma.post.create({
+        data: {
+          title,
+          content,
+          category,
+          imgSrc,
+          author: { connect: { email } },
+        },
+      });
+      res.status(200).json(result);
+    } catch (error) {
+      res.status(400).send({ message: 'error' });
+    }
+  }
+  if (req.method === 'GET') {
+    try {
+      const post = await prisma.post.findFirst({
+        where: {
+          published: true,
+        },
+        include: {
+          author: {
+            select: { name: true, email: true, image: true },
+          },
+        },
+      });
+      res.status(200).json(post);
+    } catch {
+      res.status(400).send({ message: 'error' });
+    }
   }
 }

@@ -4,39 +4,38 @@
 import React from 'react';
 
 import { GetServerSideProps } from 'next';
-/* import Image from 'next/image';
-import Link from 'next/link'; */
+import Image from 'next/image';
+import Link from 'next/link';
 
 import prisma from '@/../lib/prisma';
-// import { Avatar } from '@/components/avatar/Avatar';
+import { Avatar } from '@/components/avatar/Avatar';
 import { PostProps } from '@/types/PostProps';
 
-export const getServerSideProps: GetServerSideProps = async () => {
+/* export const getServerSideProps: GetServerSideProps = async () => {
   const post = await prisma.post.findFirst({
     where: {
       published: true,
     },
-    /* include: {
+    include: {
       author: {
         select: { name: true, email: true, image: true },
       },
-    }, */
+    },
   });
 
   return {
     props: JSON.parse(JSON.stringify(post)),
   };
-};
+}; */
 
 // eslint-disable-next-line import/no-mutable-exports
 const HighlightedPost: React.FC<PostProps> = (props) => {
-  console.log('HIGHLIGHT: ', props);
-  /*  const authorAvatar = props.post?.author?.image;
-  const { title, content, imgSrc, postUrl } = props; */
+  /*   const authorAvatar = props.post?.author?.image;
+  const { title, content, imgSrc, postUrl } = props.post;
   return (
     <div className="flex flex-row max-w-screen-lg mx-auto px-6">
       test
-      {/* <Link href={postUrl} aria-label={`Link to ${title}`}>
+      <Link href={postUrl} aria-label={`Link to ${title}`}>
         <a>
           {' '}
           <Image
@@ -67,9 +66,9 @@ const HighlightedPost: React.FC<PostProps> = (props) => {
             size={45}
           />
         </div>
-      </div> */}
+      </div>
     </div>
-  );
+  ); */
 };
 
 export { HighlightedPost };
