@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+/* import { ReactNode } from 'react';
 
 type IHeroOneButtonProps = {
   title: ReactNode;
@@ -17,3 +17,4 @@ const HeroOneButton = (props: IHeroOneButtonProps) => (
 );
 
 export { HeroOneButton };
+ */

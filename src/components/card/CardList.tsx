@@ -13,9 +13,9 @@ const CardList = () => {
           key={cd.title}
           title={cd.title}
           category="NFT"
-          description={cd.description}
+          content={cd.content}
           imgSrc={cd.imgSrc}
-          href={cd.href}
+          postUrl={cd.postUrl}
           authorAvatar={cd.authorAvatar}
         />
       ))}

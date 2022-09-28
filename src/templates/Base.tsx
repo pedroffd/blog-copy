@@ -9,16 +9,17 @@ import { AppConfig } from '../utils/AppConfig';
 import { Banner } from './Banner';
 import { Footer } from './Footer';
 import { TopBar } from './TopBar';
+
 /* import { VerticalFeatures } from './VerticalFeatures'; */
 
-const Base = () => (
+const Base = (data: any) => (
   <div className="container mx-auto bg-gray-100" id="baseTemplate">
     <Meta title={AppConfig.title} description={AppConfig.description} />
     <TopBar />
     <Banner />
     <SearchBoxComponent />
     <CategoryMenu />
-    <HighlightedPost />
+    <HighlightedPost props={data.props} />
     <CardList />
     {/* <VerticalFeatures /> */}
     <Footer />

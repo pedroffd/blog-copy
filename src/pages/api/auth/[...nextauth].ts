@@ -2,7 +2,7 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import NextAuth from 'next-auth/next';
 import GoogleProvider from 'next-auth/providers/google';
 
-import { prisma } from '@/../lib/prisma';
+import prisma from '@/../lib/prisma';
 
 const authOptions = {
   providers: [
@@ -27,12 +27,10 @@ const authOptions = {
       },
     }),
   ],
+
   adapter: PrismaAdapter(prisma),
   secret: process.env.NEXT_PUBLIC_SECRET_KEY,
   callbacks: {
-    async redirect({ '/': any }) {
-      return '/';
-    },
     session: ({ session, user }) => ({
       ...session,
       user: {

@@ -13,8 +13,8 @@ datasource db {
 }
 
 model Account {
-  id                String  @id @default(cuid())
-  userId            String
+  id                Int     @id @default(autoincrement())
+  userId            Int
   type              String
   provider          String
   providerAccountId String
@@ -32,22 +32,31 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           Int      @id @default(autoincrement())
   sessionToken String   @unique
-  userId       String
+  userId       Int
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            Int       @id @default(autoincrement())
   name          String?
   username      String?
   email         String?   @unique
   emailVerified DateTime?
+  avatar        String?
+  role          Role      @default(WRITER)
   image         String?
   accounts      Account[]
   sessions      Session[]
+  posts         Post[]
+}
+
+enum Role {
+  USER
+  ADMIN
+  WRITER
 }
 
 model VerificationToken {
@@ -56,4 +65,27 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Post {
+  id            Int      @id @default(autoincrement())
+  imgSrc        String
+  title         String
+  author        User?    @relation(fields: [authorId], references: [id])
+  authorId      Int?
+  content       String?
+  createdAt     DateTime @default(now()) @map(name: "created_at")
+  updatedAt     DateTime @updatedAt @map(name: "updated_at")
+  category      String
+  postUrl       String?  @default("postURL")
+  published     Boolean  @default(false)
+  isHighlighted Boolean  @default(false)
+}
+
+model Note {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
