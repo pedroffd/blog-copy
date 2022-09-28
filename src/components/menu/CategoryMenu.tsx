@@ -41,7 +41,7 @@ const MENU_ITEMS: Array<NavItem> = [
   },
 ];
 
-const TestComponent = () => {
+const CategoryMenu = () => {
   // const [selected, setSelected] = useState<boolean>(false);
   return (
     <Section yPadding="py-6" key="categoryMenu">
@@ -132,4 +132,4 @@ const TestComponent = () => {
   );
 };
 
-export default TestComponent;
+export default CategoryMenu;
