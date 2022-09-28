@@ -1,4 +1,5 @@
 export type PostProps = {
+  props(arg0: string, props: any): unknown;
   post: any;
   id: string;
   title: string;
