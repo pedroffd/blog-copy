@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 
 type INavbarProps = {
@@ -31,44 +32,66 @@ const NAV_ITEMS: Array<NavItem> = [
   },
 ];
 
-const NavbarThreeColumns = (props: INavbarProps) => (
-  <div
-    className="flex flex-wrap justify-between items-center"
-    id="NavbarThreeColumns"
-  >
-    <div>
-      <Link href="/">
-        <a>{props.logo}</a>
-      </Link>
-    </div>
+const LOGGED_NAV_ITEMS: Array<NavItem> = [
+  {
+    label: 'New post',
+    href: `${process.env.NEXT_PUBLIC_BASE_URL}/create`,
+  },
+];
 
-    <div className="flex flex-row">
-      {NAV_ITEMS.map((navItem) => (
-        <ul key={navItem.label} className="bg-gray-100 p-6">
-          <Link href={navItem.href ?? '#'}>
-            <a>{navItem.label}</a>
-          </Link>
+const NavbarThreeColumns = (props: INavbarProps) => {
+  const { data: session } = useSession();
+  return (
+    <div
+      className="flex flex-wrap justify-between items-center"
+      id="NavbarThreeColumns"
+    >
+      <div>
+        <Link href="/">
+          <a>{props.logo}</a>
+        </Link>
+      </div>
+
+      {!session && (
+        <div className="flex flex-row">
+          {NAV_ITEMS.map((navItem) => (
+            <ul key={navItem.label} className="bg-gray-100 p-6">
+              <Link href={navItem.href ?? '#'}>
+                <a>{navItem.label}</a>
+              </Link>
+            </ul>
+          ))}
+        </div>
+      )}
+      {session && (
+        <div className="flex flex-row">
+          {LOGGED_NAV_ITEMS.map((navItem) => (
+            <ul key={navItem.label} className="bg-gray-100 p-6">
+              <Link href={navItem.href ?? '#'}>
+                <a>{navItem.label}</a>
+              </Link>
+            </ul>
+          ))}
+        </div>
+      )}
+      <nav>
+        <ul className="navbar flex items-center font-medium text-xl text-gray-800">
+          {props.children}
         </ul>
-      ))}
+      </nav>
+
+      <style jsx>
+        {`
+          .navbar :global(li:not(first-child)) {
+            @apply mt-0;
+          }
+          .navbar :global(li:not(last-child)) {
+            @apply mr-5;
+          }
+        `}
+      </style>
     </div>
-
-    <nav>
-      <ul className="navbar flex items-center font-medium text-xl text-gray-800">
-        {props.children}
-      </ul>
-    </nav>
-
-    <style jsx>
-      {`
-        .navbar :global(li:not(first-child)) {
-          @apply mt-0;
-        }
-        .navbar :global(li:not(last-child)) {
-          @apply mr-5;
-        }
-      `}
-    </style>
-  </div>
-);
+  );
+};
 
 export { NavbarThreeColumns };
