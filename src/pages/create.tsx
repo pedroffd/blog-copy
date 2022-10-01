@@ -39,9 +39,9 @@ const Draft: React.FC = () => {
   };
   //  const { title, content, postUrl, category, imgSrc } = req.body;
   return (
-    <>
+    <div className="container mx-auto bg-white">
       <CreatorHeader />
-      <Section>
+      <Section yPadding="py-16" key="createDraft">
         <div>
           <form onSubmit={submitData}>
             <h1>New Draft</h1>
@@ -73,14 +73,20 @@ const Draft: React.FC = () => {
               type="text"
               value={form.imgSrc}
             />
-            <input
-              disabled={!form.content || !form.title}
-              type="submit"
-              value="Create"
-            />
-            <a className="back" href="#" onClick={() => Router.push('/drafts')}>
-              or Cancel
-            </a>
+            <div className="py-12">
+              <input
+                disabled={!form.content || !form.title}
+                type="submit"
+                value="Create"
+              />
+              <a
+                className="back"
+                href="#"
+                onClick={() => Router.push('/drafts')}
+              >
+                or Cancel
+              </a>
+            </div>
           </form>
         </div>
         <style jsx>{`
@@ -112,7 +118,7 @@ const Draft: React.FC = () => {
           }
         `}</style>
       </Section>
-    </>
+    </div>
   );
 };
 

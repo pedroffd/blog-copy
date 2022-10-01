@@ -46,12 +46,14 @@ const NavbarThreeColumns = (props: INavbarProps) => {
       className="flex flex-wrap justify-between items-center"
       id="NavbarThreeColumns"
     >
+      {/* left items */}
       <div>
         <Link href="/">
           <a>{props.logo}</a>
         </Link>
       </div>
 
+      {/* middle items */}
       {!session && (
         <div className="flex flex-row">
           {NAV_ITEMS.map((navItem) => (
@@ -74,6 +76,7 @@ const NavbarThreeColumns = (props: INavbarProps) => {
           ))}
         </div>
       )}
+      {/* right items */}
       <nav>
         <ul className="navbar flex items-center font-medium text-xl text-gray-800">
           {props.children}
