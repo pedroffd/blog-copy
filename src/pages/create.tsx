@@ -41,54 +41,53 @@ const Draft: React.FC = () => {
   return (
     <div className="container mx-auto bg-white">
       <CreatorHeader />
+      <h1 className="px-7">New Draft</h1>
       <Section yPadding="py-16" key="createDraft">
-        <div>
-          <form onSubmit={submitData}>
-            <h1>New Draft</h1>
+        <form onSubmit={submitData}>
+          <input
+            className="text-xl hover:border-none focus:outline-none"
+            autoFocus
+            onChange={(e) => setForm({ ...form, title: e.target.value })}
+            placeholder="Title"
+            type="text"
+            value={form.title}
+          />
+          {/* later the resize property should be conditional, only allow resize if the input text is bigger than the original size of the textarea tag component */}
+          <textarea
+            className="hover:border-none focus:outline-none resize-y"
+            cols={50}
+            onChange={(e) => setForm({ ...form, content: e.target.value })}
+            placeholder="Content"
+            rows={8}
+            value={form.content}
+          />
+          <input
+            className="hover:border-none focus:outline-none"
+            autoFocus
+            onChange={(e) => setForm({ ...form, category: e.target.value })}
+            placeholder="Category"
+            type="text"
+            value={form.category}
+          />
+          <input
+            autoFocus
+            onChange={(e) => setForm({ ...form, imgSrc: e.target.value })}
+            placeholder="Image"
+            type="text"
+            value={form.imgSrc}
+          />
+          <div className="py-12">
             <input
-              autoFocus
-              onChange={(e) => setForm({ ...form, title: e.target.value })}
-              placeholder="Title"
-              type="text"
-              value={form.title}
+              disabled={!form.content || !form.title}
+              type="submit"
+              value="Create"
             />
-            <textarea
-              cols={50}
-              onChange={(e) => setForm({ ...form, content: e.target.value })}
-              placeholder="Content"
-              rows={8}
-              value={form.content}
-            />
-            <input
-              autoFocus
-              onChange={(e) => setForm({ ...form, category: e.target.value })}
-              placeholder="Category"
-              type="text"
-              value={form.category}
-            />
-            <input
-              autoFocus
-              onChange={(e) => setForm({ ...form, imgSrc: e.target.value })}
-              placeholder="Image"
-              type="text"
-              value={form.imgSrc}
-            />
-            <div className="py-12">
-              <input
-                disabled={!form.content || !form.title}
-                type="submit"
-                value="Create"
-              />
-              <a
-                className="back"
-                href="#"
-                onClick={() => Router.push('/drafts')}
-              >
-                or Cancel
-              </a>
-            </div>
-          </form>
-        </div>
+            <a className="back" href="#" onClick={() => Router.push('/drafts')}>
+              or Cancel
+            </a>
+          </div>
+        </form>
+
         <style jsx>{`
           /create .page {
             background: white;
@@ -103,13 +102,10 @@ const Draft: React.FC = () => {
             width: 100%;
             padding: 0.5rem;
             margin: 0.5rem 0;
-            border-radius: 0.25rem;
-            border: 0.125rem solid rgba(0, 0, 0, 0.2);
           }
 
           input[type='submit'] {
             background: #ececec;
-            border: 0;
             padding: 1rem 2rem;
           }
 

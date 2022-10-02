@@ -58,7 +58,9 @@ const CreatorHeader: React.FC = () => {
     left = (
       <div className="flex">
         <Link href="/">
-          <Logo />
+          <a>
+            <Logo />
+          </a>
         </Link>
       </div>
     );
