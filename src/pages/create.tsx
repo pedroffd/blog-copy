@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 
+import { ChakraProvider, FormControl } from '@chakra-ui/react';
+import { CreatableSelect } from 'chakra-react-select';
 import Router from 'next/router';
-
+import Upload from '../components/imageUploader/Upload';
 import { Section } from '@/layout/Section';
 import { CreatorHeader } from '@/navigation/CreatorHeader';
+
+import { colourOptions } from '../data/mapData';
 
 interface FormData {
   title: string;
@@ -21,6 +25,7 @@ const Draft: React.FC = () => {
     category: '',
     imgSrc: '',
   });
+  // const [images, setImages] = React.useState([]);
 
   const submitData = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -37,15 +42,16 @@ const Draft: React.FC = () => {
       console.error(error);
     }
   };
+
   //  const { title, content, postUrl, category, imgSrc } = req.body;
   return (
     <div className="container mx-auto bg-white">
-      <CreatorHeader />
-      <h1 className="px-7">New Draft</h1>
+      <CreatorHeader pageRef="Draft in..." />
+
       <Section yPadding="py-16" key="createDraft">
         <form onSubmit={submitData}>
           <input
-            className="text-xl hover:border-none focus:outline-none"
+            className="text-xl hover:border-none focus:outline-none placeholder-placeholderColor text-2xl"
             autoFocus
             onChange={(e) => setForm({ ...form, title: e.target.value })}
             placeholder="Title"
@@ -54,21 +60,36 @@ const Draft: React.FC = () => {
           />
           {/* later the resize property should be conditional, only allow resize if the input text is bigger than the original size of the textarea tag component */}
           <textarea
-            className="hover:border-none focus:outline-none resize-y"
+            className="hover:border-none focus:outline-none resize-y placeholder-placeholderColor"
             cols={50}
             onChange={(e) => setForm({ ...form, content: e.target.value })}
             placeholder="Content"
             rows={8}
             value={form.content}
           />
-          <input
+          {/*  <input
             className="hover:border-none focus:outline-none"
             autoFocus
             onChange={(e) => setForm({ ...form, category: e.target.value })}
             placeholder="Category"
             type="text"
             value={form.category}
-          />
+          /> */}
+          <div className="hover:border-none focus:outline-none w-80">
+            <ChakraProvider>
+              <FormControl id="dropdown">
+                <CreatableSelect
+                  isMulti
+                  name="colors"
+                  options={colourOptions}
+                  placeholder="Category..."
+                  closeMenuOnSelect={true}
+                  // next release this should be changes to allow multiple insertions on the database
+                  onChange={(e) => setForm({ ...form, category: e[0].label })}
+                />
+              </FormControl>
+            </ChakraProvider>
+          </div>
           <input
             autoFocus
             onChange={(e) => setForm({ ...form, imgSrc: e.target.value })}
@@ -76,6 +97,7 @@ const Draft: React.FC = () => {
             type="text"
             value={form.imgSrc}
           />
+          <Upload />
           <div className="py-12">
             <input
               disabled={!form.content || !form.title}

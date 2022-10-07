@@ -6,7 +6,11 @@ import { useRouter } from 'next/router';
 
 import { Logo } from '@/templates/Logo';
 
-const CreatorHeader: React.FC = () => {
+type IProps = {
+  pageRef: string;
+};
+// const CreatorHeader: React.FC = () => {
+const CreatorHeader = (props: IProps) => {
   const router = useRouter();
   const isActive: (pathname: string) => boolean = (pathname) =>
     router.pathname === pathname;
@@ -73,7 +77,9 @@ const CreatorHeader: React.FC = () => {
     );
     right = (
       <div className="right flex flex-row">
-        <p className="px-6">{session.user?.name}</p>
+        <p className="px-6">
+          {props.pageRef} {session.user?.name}
+        </p>
         <button onClick={() => signOut()}>
           <a>Sign out</a>
         </button>
