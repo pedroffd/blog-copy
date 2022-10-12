@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 import { ChakraProvider, FormControl } from '@chakra-ui/react';
 import { CreatableSelect } from 'chakra-react-select';
 import Router from 'next/router';
-import Upload from '../components/imageUploader/Upload';
+
 import { Section } from '@/layout/Section';
 import { CreatorHeader } from '@/navigation/CreatorHeader';
 
+import { UploadImage } from '../components/uploader/UploadImage';
 import { colourOptions } from '../data/mapData';
 
 interface FormData {
@@ -42,7 +43,6 @@ const Draft: React.FC = () => {
       console.error(error);
     }
   };
-
   //  const { title, content, postUrl, category, imgSrc } = req.body;
   return (
     <div className="container mx-auto bg-white">
@@ -97,7 +97,7 @@ const Draft: React.FC = () => {
             type="text"
             value={form.imgSrc}
           />
-          <Upload />
+          <UploadImage />
           <div className="py-12">
             <input
               disabled={!form.content || !form.title}
