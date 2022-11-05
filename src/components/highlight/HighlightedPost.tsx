@@ -11,6 +11,7 @@ import { Avatar } from '@/components/avatar/Avatar';
 const HighlightedPost = ({ props }: any) => {
   const authorAvatar = props?.author?.image;
   const { title, content, imgSrc, postUrl } = props;
+
   return (
     <div className="flex flex-row max-w-screen-lg mx-auto px-6">
       <Link href={postUrl} aria-label={`Link to ${title}`}>

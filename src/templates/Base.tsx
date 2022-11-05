@@ -16,7 +16,7 @@ const Base = (data: any) => (
     <Banner />
     <SearchBoxComponent />
     <CategoryMenu />
-    <HighlightedPost props={data.props} />
+    {data.props && <HighlightedPost props={data.props} />}
     <CardList />
     {/* <VerticalFeatures /> */}
     <Footer />
