@@ -65,7 +65,6 @@ const Draft: React.FC = () => {
   return (
     <div className="container mx-auto bg-white">
       <CreatorHeader pageRef="Draft in..." />
-
       <Section yPadding="py-16" divId="createDraft">
         <form onSubmit={submitData}>
           <input
@@ -85,14 +84,7 @@ const Draft: React.FC = () => {
             rows={8}
             value={form.content}
           />
-          {/*  <input 
-            className="hover:border-none focus:outline-none"
-            autoFocus
-            onChange={(e) => setForm({ ...form, category: e.target.value })}
-            placeholder="Category"
-            type="text"
-            value={form.category}
-          /> */}
+
           <div className="hover:border-none focus:outline-none w-80">
             {/*    <ChakraProvider>
               <FormControl id="dropdown">
@@ -110,21 +102,6 @@ const Draft: React.FC = () => {
             </ChakraProvider> */}
           </div>
 
-          {/*  <input
-            autoFocus
-            onChange={(_e) => setForm({ ...form, imgSrc: fileURL })}
-            placeholder="Image"
-            type="text"
-            value={fileURL}
-          /> */}
-
-          {fileURL && (
-            <img
-              src={fileURL}
-              alt="uploaded image"
-              className="w-[215px] h-[129px]"
-            />
-          )}
           <ImageUploader
             setFileURL={setFileURL}
             setFileReader={setFileReader}
