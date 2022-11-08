@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
-/* import { ChakraProvider, FormControl } from '@chakra-ui/react';
-import { CreatableSelect } from 'chakra-react-select'; */
+import { ChakraProvider, FormControl } from '@chakra-ui/react';
+import { CreatableSelect } from 'chakra-react-select';
 import Router from 'next/router';
 
 import { Section } from '@/layout/Section';
 import { CreatorHeader } from '@/navigation/CreatorHeader';
 
 import { ImageUploader } from '../components/uploader/ImageUploader';
-/* import { colourOptions } from '../data/mapData'; */
+import { colourOptions } from '../data/mapData';
 
 interface FormData {
   title: string;
@@ -50,13 +50,13 @@ const Draft: React.FC = () => {
     e.preventDefault();
     try {
       await uploadImage();
-      /*   console.log('form: ', form);
+      console.log('form: ', form);
       await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      await Router.push('/drafts'); */
+      await Router.push('/drafts');
     } catch (error) {
       console.error(error);
     }
@@ -85,8 +85,8 @@ const Draft: React.FC = () => {
             value={form.content}
           />
 
-          <div className="hover:border-none focus:outline-none w-80">
-            {/*    <ChakraProvider>
+          <div className="hover:border-none focus:outline-none w-80 pb-4">
+            <ChakraProvider>
               <FormControl id="dropdown">
                 <CreatableSelect
                   instanceId="creatableSelect"
@@ -99,7 +99,7 @@ const Draft: React.FC = () => {
                   onChange={(e) => setForm({ ...form, category: e[0].label })}
                 />
               </FormControl>
-            </ChakraProvider> */}
+            </ChakraProvider>
           </div>
 
           <ImageUploader
