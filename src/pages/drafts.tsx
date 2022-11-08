@@ -52,7 +52,7 @@ const Drafts: React.FC<Props> = (props) => {
 
   return (
     <Section yPadding="py-4" divId="drafts">
-      <CreatorHeader />
+      <CreatorHeader pageRef={'drafts'} />
       <div className="page">
         <h1>My Drafts</h1>
         <main>

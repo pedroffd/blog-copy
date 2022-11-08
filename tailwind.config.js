@@ -51,6 +51,7 @@ module.exports = {
         },
         cardBg: '#0F141A',
         white: '#FFFFFF',
+        placeholderColor: '#b3b3b1',
       },
       lineHeight: {
         hero: '4.5rem',

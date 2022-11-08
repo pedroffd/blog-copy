@@ -53,7 +53,7 @@ const Post: React.FC<PostProps> = (props) => {
     title = `${title} (Draft)`;
   }
   return (
-    <Section>
+    <Section divId="Post">
       <div>
         <h2>{title}</h2>
         <p>By {props?.post.author?.name || 'Unknown author'}</p>
