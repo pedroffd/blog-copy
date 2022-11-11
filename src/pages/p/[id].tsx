@@ -48,6 +48,7 @@ const Post: React.FC<PostProps> = (props) => {
   }
   const userHasValidSession = Boolean(session?.user?.name);
   const postBelongsToUser = session?.user?.email === props.post?.author?.email;
+  console.log('POST: ', props.post);
   let { title } = props.post;
   if (!props.published) {
     title = `${title} (Draft)`;
@@ -55,14 +56,20 @@ const Post: React.FC<PostProps> = (props) => {
   return (
     <Section divId="Post">
       <div>
-        <h2>{title}</h2>
-        <p>By {props?.post.author?.name || 'Unknown author'}</p>
+        <h2 className="mb-3 text-4xl font-bold leading-8 tracking-tight">
+          {title}
+        </h2>
+        <p className="text-sm">
+          By {props?.post.author?.name || 'Unknown author'}
+        </p>
         <div>{props.content} </div>
         {!props.published && userHasValidSession && postBelongsToUser && (
           <button onClick={() => publishPost(props.post.id)}>Publish</button>
         )}
         {userHasValidSession && postBelongsToUser && (
-          <button onClick={() => deletePost(props.post.id)}>Delete</button>
+          <button className="ml-3" onClick={() => deletePost(props.post.id)}>
+            Delete
+          </button>
         )}
       </div>
     </Section>
