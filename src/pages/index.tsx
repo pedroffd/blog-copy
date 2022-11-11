@@ -23,7 +23,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 const Index = (props: any) => {
-  return <Base props={props.post} />;
+  return (
+    <div className="bg-mainPurple-200 py-8 w-full">
+      <Base props={props.post} />
+    </div>
+  );
 };
 
 export default Index;
