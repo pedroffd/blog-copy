@@ -11,8 +11,17 @@ export default async function handle(
   res: NextApiResponse
 ) {
   if (req.method === 'POST') {
-    const { title, content, category, imgSrc } = req.body;
-
+    const { title, content, category, imgSrc, isHighlighted } = req.body;
+    if (isHighlighted) {
+      await prisma.post.updateMany({
+        where: {
+          isHighlighted: true,
+        },
+        data: {
+          isHighlighted: false,
+        },
+      });
+    }
     const session = await getSession({ req });
     try {
       const email = session?.user?.email || 'pedro.alcarin@gmail.com';
@@ -22,6 +31,7 @@ export default async function handle(
           content,
           category,
           imgSrc,
+          isHighlighted,
           author: { connect: { email } },
         },
       });

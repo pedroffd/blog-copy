@@ -54,7 +54,6 @@ const Drafts: React.FC<Props> = (props) => {
     <Section yPadding="py-4" divId="drafts">
       <CreatorHeader pageRef={'drafts'} />
       <div className="page">
-        <h1>My Drafts</h1>
         <main>
           {props.drafts.map((post) => (
             <div key={post.id} className="post">

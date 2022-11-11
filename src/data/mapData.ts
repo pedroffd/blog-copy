@@ -1,4 +1,4 @@
-export const colourOptions: Array<any> = [
+export const categoryOptions: Array<any> = [
   { value: 'Fantasy', label: 'Fantasy', color: '#0052CC' },
   { value: 'Anime', label: 'Anime', color: '#5243AA' },
   { value: 'Technology', label: 'Technology', color: '#FF5630' },

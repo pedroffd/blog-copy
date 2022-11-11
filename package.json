@@ -33,7 +33,6 @@
     "react-icons": "^4.4.0",
     "react-instantsearch-dom": "^6.34.0",
     "react-instantsearch-hooks-web": "^6.34.0",
-    "react-markdown": "^8.0.3",
     "react-select": "^5.4.0",
     "styled-jsx-plugin-postcss": "^4.0.1"
   },

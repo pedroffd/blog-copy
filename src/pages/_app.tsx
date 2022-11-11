@@ -8,12 +8,10 @@ import { AppConfig } from '../utils/AppConfig';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <div className="bg-mainPurple-200 py-8 w-full">
-      <SessionProvider session={session}>
-        <Meta title={AppConfig.title} description={AppConfig.description} />
-        <Component {...pageProps} />
-      </SessionProvider>
-    </div>
+    <SessionProvider session={session}>
+      <Meta title={AppConfig.title} description={AppConfig.description} />
+      <Component {...pageProps} />
+    </SessionProvider>
   );
 }
 export default MyApp;

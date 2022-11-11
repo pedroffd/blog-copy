@@ -8,23 +8,26 @@ import { Section } from '@/layout/Section';
 import { CreatorHeader } from '@/navigation/CreatorHeader';
 
 import { ImageUploader } from '../components/uploader/ImageUploader';
-import { colourOptions } from '../data/mapData';
+import { categoryOptions } from '../data/mapData';
 
 interface FormData {
   title: string;
   content: string;
   category: string;
   imgSrc: string;
+  isHighlighted: boolean;
 }
 
 const Draft: React.FC = () => {
   const [fileURL, setFileURL] = useState<string>('');
+  const [highlight, setHighlight] = useState<boolean>(false);
   const [fileReader, setFileReader] = useState<FileReader>();
   const [form, setForm] = useState<FormData>({
     title: '',
     content: '',
     category: '',
     imgSrc: '',
+    isHighlighted: false,
   });
 
   const uploadImage = async () => {
@@ -50,7 +53,6 @@ const Draft: React.FC = () => {
     e.preventDefault();
     try {
       await uploadImage();
-      console.log('form: ', form);
       await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -60,6 +62,10 @@ const Draft: React.FC = () => {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleCheckbox = () => {
+    setHighlight(!highlight);
   };
 
   return (
@@ -84,15 +90,21 @@ const Draft: React.FC = () => {
             rows={8}
             value={form.content}
           />
+          <input
+            type="checkbox"
+            checked={highlight}
+            onChange={handleCheckbox}
+          />
+          <label className="pl-3 mb-5 text-zinc-800">Highlight Post?</label>
 
-          <div className="hover:border-none focus:outline-none w-80 pb-4">
+          <div className="hover:border-none focus:outline-none w-80 pb-4 pt-4">
             <ChakraProvider>
               <FormControl id="dropdown">
                 <CreatableSelect
                   instanceId="creatableSelect"
                   isMulti
                   name="categories"
-                  options={colourOptions}
+                  options={categoryOptions}
                   placeholder="Category..."
                   closeMenuOnSelect={true}
                   // next release this should be changes to allow multiple insertions on the database
