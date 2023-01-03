@@ -6,9 +6,9 @@ import { useRouter } from 'next/router';
 
 import { Logo } from '@/templates/Logo';
 
-type IProps = {
+/* type IProps = {
   pageRef: string;
-};
+}; */
 // const CreatorHeader: React.FC = () => {
 const CreatorHeader = (props: IProps) => {
   const router = useRouter();
@@ -78,7 +78,8 @@ const CreatorHeader = (props: IProps) => {
     right = (
       <div className="right flex flex-row">
         <p className="px-6">
-          {props.pageRef} {session.user?.name}
+          {/* {props.pageRef}  */}
+          {session.user?.name}
         </p>
         <button onClick={() => signOut()}>
           <a>Sign out</a>

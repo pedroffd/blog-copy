@@ -46,28 +46,36 @@ const Post: React.FC<PostProps> = (props) => {
   if (status === 'loading') {
     return <div>Authenticating ...</div>;
   }
+
+  const { author, category, createdAt, imgSrc, title, content } = props.post;
   const userHasValidSession = Boolean(session?.user?.name);
   const postBelongsToUser = session?.user?.email === props.post?.author?.email;
   console.log('POST: ', props.post);
-  let { title } = props.post;
-  if (!props.published) {
-    title = `${title} (Draft)`;
-  }
+
   return (
     <Section divId="Post">
       <div>
         <h2 className="mb-3 text-4xl font-bold leading-8 tracking-tight">
-          {title}
+          {`${title} (Draft)`}
         </h2>
+        <div>{content.substring(content, 93)}...</div>
         <p className="text-sm">
           By {props?.post.author?.name || 'Unknown author'}
         </p>
-        <div>{props.content} </div>
+
         {!props.published && userHasValidSession && postBelongsToUser && (
-          <button onClick={() => publishPost(props.post.id)}>Publish</button>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+            onClick={() => publishPost(props.post.id)}
+          >
+            Publish
+          </button>
         )}
         {userHasValidSession && postBelongsToUser && (
-          <button className="ml-3" onClick={() => deletePost(props.post.id)}>
+          <button
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
+            onClick={() => deletePost(props.post.id)}
+          >
             Delete
           </button>
         )}
