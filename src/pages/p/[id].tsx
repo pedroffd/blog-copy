@@ -64,10 +64,18 @@ const Post: React.FC<PostProps> = (props) => {
         </p>
 
         {!props.published && userHasValidSession && postBelongsToUser && (
-          <button onClick={() => publishPost(props.post.id)}>Publish</button>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+            onClick={() => publishPost(props.post.id)}
+          >
+            Publish
+          </button>
         )}
         {userHasValidSession && postBelongsToUser && (
-          <button className="ml-3" onClick={() => deletePost(props.post.id)}>
+          <button
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
+            onClick={() => deletePost(props.post.id)}
+          >
             Delete
           </button>
         )}
