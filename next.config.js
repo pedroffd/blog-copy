@@ -8,6 +8,7 @@ const nextConfig = {
       '1.bp.blogspot.com',
       'image.api.playstation.com',
       'cdn.cloudflare.steamstatic.com',
+      'i.ytimg.com',
       'verdict.co.uk',
     ],
   },

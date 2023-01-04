@@ -3,7 +3,7 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import Router from 'next/router';
-
+import Image from 'next/image';
 import prisma from '@/../lib/prisma';
 import { Section } from '@/layout/Section';
 import { PostProps } from '@/types/PostProps';
@@ -50,8 +50,7 @@ const Post: React.FC<PostProps> = (props) => {
   const { author, category, createdAt, imgSrc, title, content } = props.post;
   const userHasValidSession = Boolean(session?.user?.name);
   const postBelongsToUser = session?.user?.email === props.post?.author?.email;
-  console.log('POST: ', props.post);
-
+  console.log('props: ', props);
   return (
     <Section divId="Post">
       <div>
@@ -60,25 +59,36 @@ const Post: React.FC<PostProps> = (props) => {
         </h2>
         <div>{content.substring(content, 93)}...</div>
         <p className="text-sm">
-          By {props?.post.author?.name || 'Unknown author'}
+          By {props?.post.author?.name || 'Unknown author'}{' '}
+          <span className="ml-12">{createdAt}</span>
         </p>
-
-        {!props.published && userHasValidSession && postBelongsToUser && (
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-            onClick={() => publishPost(props.post.id)}
-          >
-            Publish
-          </button>
-        )}
-        {userHasValidSession && postBelongsToUser && (
-          <button
-            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
-            onClick={() => deletePost(props.post.id)}
-          >
-            Delete
-          </button>
-        )}
+        <div>
+          <Image
+            alt={title}
+            src={imgSrc}
+            className="rounded-[18px] object-cover object-center"
+            width={1080}
+            height={950}
+          />
+        </div>
+        <div className="pt-8">
+          {!props.published && userHasValidSession && postBelongsToUser && (
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+              onClick={() => publishPost(props.post.id)}
+            >
+              Publish
+            </button>
+          )}
+          {userHasValidSession && postBelongsToUser && (
+            <button
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 ml-2 rounded-full"
+              onClick={() => deletePost(props.post.id)}
+            >
+              Delete
+            </button>
+          )}
+        </div>
       </div>
     </Section>
   );
